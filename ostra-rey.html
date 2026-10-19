@@ -108,6 +108,11 @@
   .rdish{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
   .rdish .rd{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;background:var(--card);}
   .rdish .rd img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;}
+
+  .rvideo{margin-top:12px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+  .rvideo video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#1c201a;}
+  .rdish .rd span{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(30,26,18,0.78));color:#F7EFDF;font-size:0.688rem;font-weight:700;padding:22px 8px 6px 8px;text-align:center;}
+  .rdish .rd{position:relative;}
   .rnote{margin-top:8px;font-size:0.719rem;color:var(--ink2);}
   .lbox{position:fixed;inset:0;z-index:99;background:rgba(20,22,18,0.9);display:none;align-items:center;justify-content:center;padding:24px;}
   .lbox.open{display:flex;}
@@ -152,7 +157,7 @@
 
     <div class="hero">
       <img id="heroImg" src="https://aka.doubaocdn.com/s/dTvvuWWV3p" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -303,7 +308,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/dTvvuWWV3p", "https://aka.doubaocdn.com/s/bjUldL4k0a", "https://aka.doubaocdn.com/s/l48Us95Rfp", "https://aka.doubaocdn.com/s/rKHZW1RVUS", "https://aka.doubaocdn.com/s/eksRIMkfSx", "https://aka.doubaocdn.com/s/tOqqZY65ns"];
+var IMGS=["https://aka.doubaocdn.com/s/dTvvuWWV3p", "https://aka.doubaocdn.com/s/bjUldL4k0a", "https://aka.doubaocdn.com/s/rKHZW1RVUS", "https://aka.doubaocdn.com/s/eksRIMkfSx", "https://aka.doubaocdn.com/s/tOqqZY65ns"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;

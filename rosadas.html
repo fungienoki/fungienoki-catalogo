@@ -108,6 +108,11 @@
   .rdish{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
   .rdish .rd{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;background:var(--card);}
   .rdish .rd img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;}
+
+  .rvideo{margin-top:12px;border-radius:16px;overflow:hidden;box-shadow:var(--shadow);}
+  .rvideo video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover;background:#1c201a;}
+  .rdish .rd span{position:absolute;left:0;right:0;bottom:0;background:linear-gradient(transparent,rgba(30,26,18,0.78));color:#F7EFDF;font-size:0.688rem;font-weight:700;padding:22px 8px 6px 8px;text-align:center;}
+  .rdish .rd{position:relative;}
   .rnote{margin-top:8px;font-size:0.719rem;color:var(--ink2);}
   .lbox{position:fixed;inset:0;z-index:99;background:rgba(20,22,18,0.9);display:none;align-items:center;justify-content:center;padding:24px;}
   .lbox.open{display:flex;}
@@ -196,6 +201,13 @@
         <span class="chip" data-l="n3">視覺驚豔</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="r1"></span></h2>
+      <div class="rnote" data-l="r2"></div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/v43MV4QRS1" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r3"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/TmQH3LYPkZ" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r4"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/jrd2VH148i" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r5"></span></div></div>
+      <div class="rnote" data-l="r6" style="margin-top:6px;"></div><div class="rnote" data-l="r7" style="margin-top:6px;"></div><div class="rnote" data-l="r8" style="margin-top:6px;"></div>
+      <div class="rvideo"><video controls preload="metadata" poster="https://aka.doubaocdn.com/s/v43MV4QRS1"><source src="https://aka.doubaocdn.com/s/mSFOWqwAoU" type="video/mp4"></video></div>
+    </div>
     </div>
 
   <footer>
@@ -238,6 +250,14 @@ var T = {
   n1:{'zh-Hant':'高抗氧化','zh-Hans':'高抗氧化','es':'Antioxidantes'},
   n2:{'zh-Hant':'培根風味','zh-Hans':'培根风味','es':'Sabor a panceta'},
   n3:{'zh-Hant':'視覺驚豔','zh-Hans':'视觉惊艳','es':'A la vista'},
+  r1:{'zh-Hant':'食譜與影片','zh-Hans':'食谱与影片','es':'Receta y video'},
+  r2:{'zh-Hant':'點擊圖片可放大查看','zh-Hans':'点击图片可放大查看','es':'Tocá la imagen para verla en grande'},
+  r3:{'zh-Hant':'黑胡椒粉紅菇炊飯','zh-Hans':'黑胡椒粉红菇炊饭','es':'Arroz de gírgolas rosadas con pimienta negra'},
+  r4:{'zh-Hant':'食材與小貼士','zh-Hans':'食材与小贴士','es':'Ingredientes y consejos'},
+  r5:{'zh-Hant':'做法步驟','zh-Hans':'做法步骤','es':'Pasos de la receta'},
+  r6:{'zh-Hant':'黑胡椒粉紅菇炊飯 · 雨天的一碗暖飯：黑胡椒的香氣與粉紅菇的鮮味，簡單卻療癒。','zh-Hans':'黑胡椒粉红菇炊饭 · 雨天的一碗暖饭：黑胡椒的香气与粉红菇的鲜味，简单却治愈。','es':'Arroz de gírgolas rosadas con pimienta negra · un plato tibio para los días de lluvia: el aroma de la pimienta negra y el umami de las gírgolas rosadas, simple y reconfortante.'},
+  r7:{'zh-Hant':'食材：粉紅平菇 120g、白米 1杯、洋蔥 1/4顆、昆布高湯 180ml、醬油 1大匙、味醂 1大匙、現磨黑胡椒 1小匙、奶油 5g（可省略）、歐芹碎 少許、溫泉蛋 1顆（可選）。小貼士：粉紅平菇加熱後會慢慢變成淡橘色或金黃色，這是正常現象。想保留漂亮顏色，可以把一小部分粉紅菇最後再輕煎後擺盤。','zh-Hans':'食材：粉红平菇 120g、白米 1杯、洋葱 1/4颗、昆布高汤 180ml、酱油 1大匙、味醂 1大匙、现磨黑胡椒 1小匙、奶油 5g（可省略）、欧芹碎 少许、温泉蛋 1颗（可选）。小贴士：粉红平菇加热后会慢慢变成淡橘色或金黄色，这是正常现象。想保留漂亮颜色，可以把一小部分粉红菇最后再轻煎后摆盘。','es':'Ingredientes: 120 g de gírgolas rosadas, 1 taza de arroz, 1/4 de cebolla, 180 ml de caldo de kombu, 1 cda. de salsa de soja, 1 cda. de mirin, 1 cdita. de pimienta negra recién molida, 5 g de manteca (opcional), perejil picado y 1 huevo poché (opcional). Consejo: al calentarse, las gírgolas rosadas toman un tono naranja claro o dorado; es normal. Para conservar el color, dorá una pequeña parte al final y decorá.'},
+  r8:{'zh-Hant':'做法：1) 白米洗淨後浸泡 20 分鐘。2) 洋蔥切絲，粉紅平菇撕成大片。3) 將高湯、醬油、味醂加入米中，鋪上洋蔥與粉紅菇，撒上大量現磨黑胡椒。4) 按下煮飯鍵；完成後加入少量奶油輕輕拌勻，盛碗後放上溫泉蛋與歐芹。','zh-Hans':'做法：1) 白米洗净后浸泡 20 分钟。2) 洋葱切丝，粉红平菇撕成大片。3) 将高汤、酱油、味醂加入米中，铺上洋葱与粉红菇，撒上大量现磨黑胡椒。4) 按下煮饭键；完成后加入少量奶油轻轻拌匀，盛碗后放上温泉蛋与欧芹。','es':'Pasos: 1) Lavá el arroz y dejalo en remojo 20 minutos. 2) Cortá la cebolla en juliana y desmenuzá las gírgolas rosadas en trozos grandes. 3) Agregá el caldo, la soja y el mirin al arroz; cubrí con la cebolla y las gírgolas, y espolvoreá con abundante pimienta negra recién molida. 4) Activá la cocción; al terminar, integrá suavemente un poco de manteca y serví en un bol con el huevo poché y el perejil.'},
 };
 var RECIPES = [];
 // 状态
