@@ -268,7 +268,7 @@ var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';
 var SIZE = parseInt(localStorage.getItem('fe_size')||'0',10);
 function renderYt(){
-  var g = document.getElementById('ytList'); g.innerHTML='';
+  var g = document.getElementById('ytList'); if(!g) return; g.innerHTML='';
   RECIPES.forEach(function(r,i){
     var main = LANG==='es'?r.es:r.zh, sub = LANG==='es'?r.zh:r.es;
     var d = document.createElement('div');
@@ -279,6 +279,7 @@ function renderYt(){
 }
 function playYt(i){
   var p=document.getElementById('ytPlayer'), f=document.getElementById('ytFrame');
+  if(!p||!f||!RECIPES[i]) return;
   p.style.display='block'; f.src='https://www.youtube.com/embed/'+RECIPES[i].v+'?autoplay=1&rel=0';
   p.scrollIntoView({behavior:'smooth',block:'center'});
 }

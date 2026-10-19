@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fungi Enoki · Ganoderma lucidum 靈芝</title>
+<style>
+  :root{
+    --bg1:#F7F3EA; --bg2:#EFE9DA; --bg3:#E6DFCC;
+    --ink:#5A4636; --ink2:#9C7E6E; --accent:#C96A3C;
+    --card:rgba(255,255,255,0.82); --cardline:rgba(255,255,255,0.95);
+    --shadow:0 6px 20px rgba(90,70,54,0.10);
+    --dark1:#5A4636; --dark2:#3E3128;
+  }
+  [data-theme="night"]{
+    --bg1:#201A13; --bg2:#2A2119; --bg3:#35291E;
+    --ink:#F0E6D6; --ink2:#B49B86; --accent:#E89262;
+    --card:rgba(255,255,255,0.08); --cardline:rgba(255,255,255,0.14);
+    --shadow:0 6px 20px rgba(0,0,0,0.35);
+    --dark1:#14100B; --dark2:#1D1610;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:-apple-system,'PingFang TC','PingFang SC','Microsoft YaHei','Noto Sans TC',sans-serif;
+    background:linear-gradient(170deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%);
+    color:var(--ink);min-height:100vh;transition:background .35s,color .35s;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:16px 18px 0 18px;}
+  .hidden{display:none!important;}
+  .toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
+  .logo-row{display:flex;align-items:center;gap:13px;margin-bottom:14px;}
+  .logo-row img{width:52px;height:52px;border-radius:50%;object-fit:cover;box-shadow:0 3px 12px rgba(90,70,54,.22);}
+  .logo-row .lb{font-size:1.312rem;font-weight:700;letter-spacing:2.5px;color:var(--ink);font-family:Georgia,'Times New Roman',serif;}
+  .logo-row .lb .f{font-weight:700;}
+  .logo-row .lb .e{font-weight:700;}
+  .back-btn{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--cardline);border-radius:14px;padding:9px 15px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);font-size:0.812rem;font-weight:600;backdrop-filter:none;}
+  .back-btn svg{flex:none;}
+  .tool-icons{display:flex;gap:8px;align-items:center;}
+  .lang-pill{display:flex;gap:3px;background:var(--card);border:1px solid var(--cardline);border-radius:14px;padding:4px;box-shadow:var(--shadow);backdrop-filter:none;}
+  .lang-pill button{border:none;background:transparent;color:var(--ink2);font-size:0.781rem;font-weight:600;padding:7px 13px;border-radius:10px;cursor:pointer;font-family:inherit;transition:background .2s,color .2s;}
+  .lang-pill button.on{background:linear-gradient(135deg,#C96A3C,#B85A2E);color:#fff;box-shadow:0 2px 8px rgba(201,106,60,.35);}
+  .icon-btn{width:38px;height:38px;border-radius:13px;background:var(--card);border:1px solid var(--cardline);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .15s;}
+  .icon-btn:active{transform:scale(.92);}
+  .size-pill{display:flex;gap:3px;background:var(--card);border:1px solid var(--cardline);border-radius:14px;padding:4px;box-shadow:var(--shadow);backdrop-filter:none;}
+  .size-pill button{border:none;background:transparent;color:var(--ink);padding:6px 12px;border-radius:10px;cursor:pointer;font-family:Georgia,serif;font-size:0.938rem;font-weight:700;letter-spacing:.5px;}
+  .size-pill button:active{background:rgba(201,106,60,.14);}
+  /* hero 轮播 */
+  .hero{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1;max-height:640px;margin-bottom:16px;}
+  .hero img{width:100%;height:100%;object-fit:cover;display:block;}
+  .hero .dots{position:absolute;left:0;right:0;bottom:12px;display:flex;justify-content:center;gap:7px;}
+  .hero .dots i{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.55);display:block;transition:background .3s;}
+  .hero .dots i.on{background:#C96A3C;}
+  /* 标题区 */
+  .head{padding:4px 4px 14px 4px;}
+  .head .zh{font-size:1.875rem;font-weight:800;}
+  .head .es{font-size:1.188rem;font-style:italic;color:var(--ink2);margin-top:4px;}
+  .head .meta{margin-top:8px;font-size:0.781rem;color:var(--ink2);}
+  /* 区块卡片 */
+  .sec{background:var(--card);border:1px solid var(--cardline);border-radius:26px;padding:20px 20px;box-shadow:var(--shadow);margin-bottom:14px;}
+  .sec h2{font-size:1.062rem;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
+  .sec h2 .ic{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;position:relative;
+    background:linear-gradient(145deg,#5E8466,#3E5B47);
+    border:1px solid rgba(255,255,255,0.55);
+    box-shadow:0 6px 16px rgba(90,70,54,0.22), inset 0 2px 4px rgba(255,255,255,0.35), inset 0 -2px 6px rgba(0,0,0,0.22);
+  }
+  [data-theme="night"] .sec h2 .ic{border:1px solid rgba(255,255,255,0.30);box-shadow:0 6px 16px rgba(0,0,0,0.40), inset 0 2px 4px rgba(255,255,255,0.12), inset 0 -2px 6px rgba(0,0,0,0.35);}
+  .sec h2 .ic svg{width:21px;height:21px;}
+  .sec p{font-size:0.906rem;line-height:1.75;color:var(--ink);}
+  .sec p.lead{color:var(--ink);}
+  .sec .sub{color:var(--ink2);font-size:0.844rem;line-height:1.7;margin-top:8px;}
+  /* 深色营养卡 */
+  .nutri{background:linear-gradient(120deg,var(--dark1),var(--dark2));color:#F0E6D6;border-radius:26px;padding:22px 22px;margin-bottom:14px;box-shadow:var(--shadow);}
+  .nutri .keyline{display:inline-block;font-size:0.719rem;font-weight:800;letter-spacing:2px;color:#F6C453;border:1px solid rgba(246,196,83,0.55);border-radius:999px;padding:4px 12px;}
+  .nutri .big{font-size:1.625rem;font-weight:800;color:#F6C453;margin-top:12px;line-height:1.35;}
+  .nutri .desc{margin-top:10px;font-size:0.844rem;line-height:1.7;color:#D9CBB4;}
+  .nutri .row{display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;}
+  .nutri .chip{background:rgba(255,255,255,0.10);border-radius:14px;padding:10px 14px;font-size:0.781rem;font-weight:700;color:#F0E6D6;}
+  /* 烹饪方式小标签 */
+  .chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
+  .chips span{background:rgba(201,106,60,0.12);border:1px solid rgba(201,106,60,0.3);color:var(--accent);border-radius:999px;padding:6px 13px;font-size:0.781rem;font-weight:700;}
+  /* YouTube 食谱 */
+  .yt-card{display:flex;align-items:center;gap:12px;background:var(--card);border:1px solid var(--cardline);border-radius:18px;padding:10px 12px;box-shadow:var(--shadow);margin-top:10px;cursor:pointer;}
+  .yt-card .thumb{position:relative;width:96px;height:54px;border-radius:12px;overflow:hidden;flex:none;background:#1B1B1B;}
+  .yt-card .thumb img{width:100%;height:100%;object-fit:cover;display:block;}
+  .yt-card .thumb span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:rgba(201,106,60,0.95);display:flex;align-items:center;justify-content:center;}
+  .yt-card .t1{font-size:0.781rem;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .yt-card .t2{font-size:0.688rem;font-style:italic;color:var(--ink2);margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .yt-card .go{font-size:0.656rem;font-weight:700;color:var(--accent);flex:none;}
+  #ytPlayer{display:none;margin-top:12px;border-radius:16px;overflow:hidden;background:#000;box-shadow:var(--shadow);}
+  #ytPlayer iframe{width:100%;aspect-ratio:16/9;border:0;display:block;}
+  /* 维护卡片 */
+  .maint-card{max-width:460px;margin:60px auto;text-align:center;background:var(--card);border:1px solid var(--cardline);border-radius:26px;padding:40px 28px;box-shadow:var(--shadow);}
+  .maint-card .m1{font-size:1.375rem;font-weight:800;}
+  .maint-card .m2{margin-top:12px;font-size:0.875rem;color:var(--ink2);line-height:1.7;}
+  /* footer */
+  footer{margin-top:16px;background:linear-gradient(120deg,#5A4636,#3E3128);color:#E8DCC8;padding:28px 20px 38px 20px;text-align:center;}
+  [data-theme="night"] footer{background:linear-gradient(120deg,#14100B,#1D1610);}
+  footer .fbrand{font-size:1.125rem;font-weight:800;letter-spacing:2px;}
+  footer .fmail{margin-top:10px;font-size:0.812rem;color:#CBB79F;}
+  footer .fmail a{color:#E8DCC8;text-decoration:none;border-bottom:1px dotted #CBB79F;}
+  @media (max-width:520px){
+    .head .zh{font-size:1.562rem;}
+    .head .es{font-size:1.000rem;}
+    .sec{padding:16px 15px;}
+    .nutri .big{font-size:1.375rem;}
+  }
+</style>
+</head>
+<body>
+<div id="maintPage" class="hidden">
+  <div class="maint-card">
+    <div data-l="maintTitle" class="m1">網站暫時關閉</div>
+    <div data-l="maintText" class="m2">我們正在休息整理中，歡迎稍後再來。如有任何問題，歡迎來信：<br><a href="mailto:fungienoki@gmail.com" style="color:var(--accent);">fungienoki@gmail.com</a></div>
+  </div>
+</div>
+
+<div id="sitePage">
+  <div class="wrap">
+    <div class="toolbar">
+      <a class="back-btn" href="index.html" data-l="back"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>全部產品</span></a>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <div class="lang-pill">
+          <button data-lang="zh-Hant" onclick="setLang('zh-Hant')">繁</button>
+          <button data-lang="zh-Hans" onclick="setLang('zh-Hans')">简</button>
+          <button data-lang="es" onclick="setLang('es')">ES</button>
+        </div>
+        <div class="size-pill">
+          <button onclick="setSize(-1)" title="縮小字體">A−</button>
+          <button onclick="setSize(1)" title="放大字體">A+</button>
+        </div>
+        <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="日夜模式">
+          <svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path id="themePath" d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z" fill="currentColor"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div class="logo-row">
+      <img src="https://aka.doubaocdn.com/s/BOaOq0jgnV" alt="Fungi Enoki Logo">
+      <div class="lb"><span class="f">Fungi</span> <span class="e">Enoki</span></div>
+    </div>
+
+    <div class="hero">
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/HhDjRJquYB" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+    </div>
+
+    <div class="head">
+      <div class="zh" data-l="title">靈芝</div>
+      <div class="es">Ganoderma lucidum</div>
+      <div class="meta" data-l="meta">Ganoderma lucidum · 中國神農本草經列為上品</div>
+    </div>
+
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/><path d="M9 6h6M9 9.5h6"/></svg></span><span data-l="s1t">名字的由來</span></h2>
+      <p data-l="s1p">「不朽之菇」：在亞洲被譽為「菇王」。質地硬、味苦，所以不吃，而是泡茶或做酊劑。性溫——在菇類中相當少見。</p>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#F2E9DB,#E8DCBE);"><svg viewBox="0 0 24 24" fill="none" stroke="#6B5138" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 6.5a2.5 2.5 0 0 0-2.5-2.5A8 8 0 1 0 19 12l-2.3-.8"/><path d="M17.5 7.5 21 16"/><circle cx="5" cy="9" r="1.1" fill="#6B5138" stroke="none"/><circle cx="7" cy="14" r="1.1" fill="#6B5138" stroke="none"/><circle cx="11" cy="17" r="1.1" fill="#6B5138" stroke="none"/><circle cx="13.5" cy="6.5" r="2.5"/></svg></span><span data-l="s2t">為什麼我們選它</span></h2>
+      <p data-l="s2p">神農本草經列為上品藥材（「藥中之王」）；多數菇在中醫屬寒，靈芝是少數性溫者，可長期服用，有助補回隨年齡、煩惱與壓力流失的陽氣。古代是帝王與富豪專屬之菇。</p>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.2 3h3.6v2h-3.6z"/><path d="M5.6 7.6a6.4 6.4 0 0 1 12.8 0"/><path d="M5.6 7.6v3.4a2.6 2.6 0 0 0 2.6 2.6h7.6a2.6 2.6 0 0 0 2.6-2.6V7.6"/><path d="M8.2 15.6h7.6"/></svg></span><span data-l="s3t">怎麼泡</span></h2>
+      <p data-l="s3p">切塊，每公升水約 30g。沸騰後再煮一個半小時以上（含幾丁質）。避免鐵鍋或鋁鍋，用陶瓷或陶鍋。可用紅糖、冰糖或枸杞調味。</p>
+      <div class="chips"><span data-l="c1">每升約30g</span><span data-l="c2">久煮1.5小時+</span><span data-l="c3">陶鍋陶瓷</span><span data-l="c4">泡茶或酊劑</span></div>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-5 8.5-8 10-3-1.5-8-5-8-10a5.5 5.5 0 0 1 11-2 5.5 5.5 0 0 1 5 2z"/><path d="M12 20c-.5-3 1-5.5 3.5-7.5"/></svg></span><span data-l="s4t">益處</span></h2>
+      <p data-l="s4p">亞洲傳統與長壽、抗衰老相關。被研究用於增強免疫系統、肝臟、心臟、血壓、膽固醇、過敏與氣喘，以及皮膚與頭髮。</p>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#F2E9DB,#E8DCBE);"><svg viewBox="0 0 24 24" fill="none" stroke="#6B5138" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4.5" y="2.5" width="15" height="19" rx="2"/><path d="M4.5 10.5h15"/><path d="M8.5 6v3.8M8.5 14v4"/><path d="M17.5 12.5v3M17.5 12.5l1.3-1.3M17.5 12.5l-1.3-1.3M17.5 15.5l1.3 1.3M17.5 15.5l-1.3 1.3M17.5 14h.01"/></svg></span><span data-l="s5t">保存方式</span></h2>
+      <p data-l="s5p">乾燥密封存放於陰涼乾燥處，可長期保存。</p>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#D9C9B6,#C4AE93);"><svg viewBox="0 0 24 24" fill="none" stroke="#6B5138" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M5.2 5.2l1.7 1.7M17.1 17.1l1.7 1.7M18.8 5.2l-1.7 1.7M6.9 17.1l-1.7 1.7"/><circle cx="12" cy="12" r="1.8" fill="#6B5138" stroke="none" opacity=".4"/></svg></span><span data-l="s6t">為什麼惹人愛</span></h2>
+      <p data-l="s6p">含多醣體與三萜類，被研究抑制腫瘤細胞生長並增強免疫；富含抗氧化物質，古人說常飲其茶有助防衰老。</p>
+    </div>
+    <div class="nutri">
+      <span class="keyline" data-l="nkey">關鍵亮點</span>
+      <div class="big" data-l="nbig">「菇王」· 神農本草經上品</div>
+      <div class="desc" data-l="ndesc">多醣體與三萜類被研究抑制腫瘤細胞並增強免疫；性溫可長期飲用，傳統上與長壽、抗衰老相關。</div>
+      <div class="row">
+        <span class="chip" data-l="n1">多醣體</span>
+        <span class="chip" data-l="n2">三萜類</span>
+        <span class="chip" data-l="n3">長壽傳統</span>
+      </div>
+    </div>
+    </div>
+
+  <footer>
+    <div class="fbrand">FUNGI ENOKI</div>
+    <div class="fmail">Email：<a href="mailto:fungienoki@gmail.com">fungienoki@gmail.com</a></div>
+  </footer>
+</div>
+
+<script>
+// 维护模式
+fetch('maintenance.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
+  if(d && d.on===true){document.getElementById('sitePage').classList.add('hidden');document.getElementById('maintPage').classList.remove('hidden');}
+}).catch(function(){});
+// 语言字典
+var T = {
+  back:{'zh-Hant':'← 全部產品','zh-Hans':'← 全部产品','es':'← Todos los productos'},
+  maintTitle:{'zh-Hant':'網站暫時關閉','zh-Hans':'网站暂时关闭','es':'Sitio temporalmente cerrado'},
+  maintText:{'zh-Hant':'我們正在休息整理中，歡迎稍後再來。','zh-Hans':'我们正在休息整理中，欢迎稍后再来。','es':'Estamos descansando y organizando. Vuelva pronto.'},
+  title:{'zh-Hant':'靈芝','zh-Hans':'灵芝','es':'Ganoderma lucidum'},
+  meta:{'zh-Hant':'Ganoderma lucidum · 中國神農本草經列為上品','zh-Hans':'Ganoderma lucidum · 中国神农本草经列为上品','es':'Ganoderma lucidum · Hierba de primera categoría según Shennong'},
+  s1t:{'zh-Hant':'名字的由來','zh-Hans':'名字的由来','es':'El origen del nombre'},
+  s1p:{'zh-Hant':'「不朽之菇」：在亞洲被譽為「菇王」。質地硬、味苦，所以不吃，而是泡茶或做酊劑。性溫——在菇類中相當少見。','zh-Hans':'「不朽之菇」：在亚洲被誉为「菇王」。质地硬、味苦，所以不吃，而是泡茶或做酊剂。性温——在菇类中相当少见。','es':'El «rey de los hongos» en Asia. Es duro y amargo, por eso no se come: se toma en té o en tintura. Es de naturaleza tibia, algo poco común entre los hongos.'},
+  s2t:{'zh-Hant':'為什麼我們選它','zh-Hans':'为什么我们选它','es':'Por qué lo elegimos'},
+  s2p:{'zh-Hant':'神農本草經列為上品藥材（「藥中之王」）；多數菇在中醫屬寒，靈芝是少數性溫者，可長期服用，有助補回隨年齡、煩惱與壓力流失的陽氣。古代是帝王與富豪專屬之菇。','zh-Hans':'神农本草经列为上品药材（「药中之王」）；多数菇在中医属寒，灵芝是少数性温者，可长期服用，有助补回随年龄、烦恼与压力流失的阳气。古代是帝王与富豪专属之菇。','es':'Según la Materia Médica clásica de Shennong, es una hierba medicinal de la primera categoría; la mayoría de los hongos son fríos, el reishi es de los pocos tibios, por lo que puede consumirse a largo plazo y ayuda a recuperar el yang que se pierde con la edad, las preocupaciones y el estrés. Antiguamente era el hongo de los emperadores.'},
+  s3t:{'zh-Hant':'怎麼泡','zh-Hans':'怎么泡','es':'Cómo prepararlo'},
+  s3p:{'zh-Hant':'切塊，每公升水約 30g。沸騰後再煮一個半小時以上（含幾丁質）。避免鐵鍋或鋁鍋，用陶瓷或陶鍋。可用紅糖、冰糖或枸杞調味。','zh-Hans':'切块，每公升水约 30g。沸腾后再煮一个半小时以上（含几丁质）。避免铁锅或铝锅，用陶瓷或陶锅。可用红糖、冰糖或枸杞调味。','es':'Cortalo en trozos y usá unos 30 g por litro de agua. Cocinalo más de una hora y media después de que hierva (contiene quitina). Evitá ollas de hierro o aluminio; usá cerámica o barro. Se puede endulzar con azúcar mascabo, azúcar rock o goji.'},
+  c1:{'zh-Hant':'每升約30g','zh-Hans':'每升约30g','es':'30 g por litro'},
+  c2:{'zh-Hant':'久煮1.5小時+','zh-Hans':'久煮1.5小时+','es':'Hervir 1,5 h+'},
+  c3:{'zh-Hant':'陶鍋陶瓷','zh-Hans':'陶锅陶瓷','es':'Cerámica o barro'},
+  c4:{'zh-Hant':'泡茶或酊劑','zh-Hans':'泡茶或酊剂','es':'Té o tintura'},
+  s4t:{'zh-Hant':'益處','zh-Hans':'益处','es':'Beneficios'},
+  s4p:{'zh-Hant':'亞洲傳統與長壽、抗衰老相關。被研究用於增強免疫系統、肝臟、心臟、血壓、膽固醇、過敏與氣喘，以及皮膚與頭髮。','zh-Hans':'亚洲传统与长寿、抗衰老相关。被研究用于增强免疫系统、肝脏、心脏、血压、胆固醇、过敏与气喘，以及皮肤与头发。','es':'En Asia se asocia con la longevidad y el antienvejecimiento. Se estudia para fortalecer el sistema inmune, la salud del hígado, el corazón, la presión, el colesterol, las alergias y el asma, y para la piel y el cabello.'},
+  s5t:{'zh-Hant':'保存方式','zh-Hans':'保存方式','es':'Cómo conservarlo'},
+  s5p:{'zh-Hant':'乾燥密封存放於陰涼乾燥處，可長期保存。','zh-Hans':'干燥密封存放于阴凉干燥处，可长期保存。','es':'Seco, en un lugar fresco y seco; dura mucho tiempo.'},
+  s6t:{'zh-Hant':'為什麼惹人愛','zh-Hans':'为什么惹人爱','es':'Por qué enamora'},
+  s6p:{'zh-Hant':'含多醣體與三萜類，被研究抑制腫瘤細胞生長並增強免疫；富含抗氧化物質，古人說常飲其茶有助防衰老。','zh-Hans':'含多糖体与三萜类，被研究抑制肿瘤细胞生长并增强免疫；富含抗氧化物质，古人说常饮其茶有助防衰老。','es':'Contiene polisacáridos y triterpenos que se estudian por inhibir el crecimiento de células tumorales, y fortalece el sistema inmune; muy rico en antioxidantes, asociado con la prevención del envejecimiento.'},
+  nkey:{'zh-Hant':'關鍵亮點','zh-Hans':'关键亮点','es':'DATO CLAVE'},
+  nbig:{'zh-Hant':'「菇王」· 神農本草經上品','zh-Hans':'「菇王」· 神农本草经上品','es':'El «rey de los hongos» · primera categoría'},
+  ndesc:{'zh-Hant':'多醣體與三萜類被研究抑制腫瘤細胞並增強免疫；性溫可長期飲用，傳統上與長壽、抗衰老相關。','zh-Hans':'多糖体与三萜类被研究抑制肿瘤细胞并增强免疫；性温可长期饮用，传统上与长寿、抗衰老相关。','es':'Polisacáridos y triterpenos antitumorales; fortalece el sistema inmune; de naturaleza tibia, asociado con longevidad.'},
+  n1:{'zh-Hant':'多醣體','zh-Hans':'多糖体','es':'Polisacáridos'},
+  n2:{'zh-Hant':'三萜類','zh-Hans':'三萜类','es':'Triterpenos'},
+  n3:{'zh-Hant':'長壽傳統','zh-Hans':'长寿传统','es':'Longevidad'},
+};
+var RECIPES = [];
+// 状态
+var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
+var THEME = localStorage.getItem('fe_theme') || 'day';
+var SIZE = parseInt(localStorage.getItem('fe_size')||'0',10);
+function renderYt(){
+  var g = document.getElementById('ytList'); if(!g) return; g.innerHTML='';
+  RECIPES.forEach(function(r,i){
+    var main = LANG==='es'?r.es:r.zh, sub = LANG==='es'?r.zh:r.es;
+    var d = document.createElement('div');
+    d.className='yt-card'; d.onclick=function(){playYt(i);};
+    d.innerHTML='<div class="thumb"><img src="'+r.th+'"><span><svg width="10" height="10" viewBox="0 0 24 24"><polygon points="9,5 20,12 9,19" fill="#fff"/></svg></span></div><div style="flex:1;min-width:0;"><div class="t1">'+main+'</div><div class="t2">'+sub+'</div></div><span class="go">播放 →</span>';
+    g.appendChild(d);
+  });
+}
+function playYt(i){
+  var p=document.getElementById('ytPlayer'), f=document.getElementById('ytFrame');
+  if(!p||!f||!RECIPES[i]) return;
+  p.style.display='block'; f.src='https://www.youtube.com/embed/'+RECIPES[i].v+'?autoplay=1&rel=0';
+  p.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function setLang(l){
+  LANG=l; localStorage.setItem('fe_lang',l);
+  document.querySelectorAll('.lang-pill button').forEach(function(b){b.classList.toggle('on',b.dataset.lang===l);});
+  Object.keys(T).forEach(function(k){
+    var el=document.querySelector('[data-l="'+k+'"]');
+    if(el) el.textContent=T[k][l];
+  });
+  renderYt();
+}
+function setSize(d){
+  SIZE=Math.max(-3,Math.min(3,SIZE+d)); localStorage.setItem('fe_size',SIZE);
+  document.documentElement.style.fontSize=(100+SIZE*10)+'%';
+}
+function toggleTheme(){
+  THEME=THEME==='day'?'night':'day'; localStorage.setItem('fe_theme',THEME);
+  document.documentElement.setAttribute('data-theme',THEME);
+  var tp=document.getElementById('themePath');
+  if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
+}
+// hero 轮播
+var IMGS=["https://aka.doubaocdn.com/s/HhDjRJquYB", "https://aka.doubaocdn.com/s/MLbTdd3xn1", "https://aka.doubaocdn.com/s/knAMxUQayL", "https://aka.doubaocdn.com/s/e1uKaNMJvf"];
+var idx=0;
+setInterval(function(){
+  idx=(idx+1)%IMGS.length;
+  document.getElementById('heroImg').src=IMGS[idx];
+  var ds=document.querySelectorAll('.hero .dots i');
+  ds.forEach(function(dd,j){dd.classList.toggle('on',j===idx);});
+},3000);
+// 初始化
+(function(){
+  setLang(LANG);
+  setSize(0);
+  if(THEME==='night') toggleTheme();
+})();
+</script>
+</body>
+</html>
