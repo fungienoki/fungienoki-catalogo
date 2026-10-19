@@ -135,7 +135,7 @@
         <span class="bn">Fungi Enoki</span>
       </div>
       <div class="tool-icons">
-        <div class="pill">
+        <div class="pill" id="themeBtn" onclick="toggleTheme()" style="cursor:pointer;" title="日夜模式">
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="5" fill="#D9A441"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M5 19l2-2" stroke="#D9A441" stroke-width="1.8"/></svg>
           <span class="t" data-l="day">日</span>
           <svg width="14" height="14" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 13A8.5 8.5 0 0 1 11 3a8.5 8.5 0 1 0 10 10z" fill="#5A6B7A"/></svg>
@@ -160,7 +160,7 @@
     <div class="hero">
       <img src="https://aka.doubaocdn.com/s/dTvvuWWV3p" alt="Hongos frescos">
       <div class="shade"></div>
-      <div class="label">HONGOS FRESCOS</div>
+      <div class="label" data-l="heroLabel">HONGOS FRESCOS</div>
       <div class="box">
         <div class="t1" data-l="heroTitle">Nuestros Productos</div>
         <div class="line"></div>
@@ -233,8 +233,9 @@ function showMaint(){
 var LANGS = {
   "day":{"zh-Hant":"日","zh-Hans":"日","es":"Día"},
   "heroTitle":{"zh-Hant":"我們的產品","zh-Hans":"我们的产品","es":"Nuestros Productos"},
+  "heroLabel":{"zh-Hant":"新鮮蘑菇","zh-Hans":"新鲜蘑菇","es":"HONGOS FRESCOS"},
   "heroTip":{"zh-Hant":"掃描包裝二維碼 · 認識每一種蘑菇","zh-Hans":"扫描包装二维码 · 认识每一种蘑菇","es":"Escanee el código QR del envase · conozca cada hongo"},
-  "footMail":{"zh-Hant":"聯繫訂購 · Pedidos: ","zh-Hans":"联系订购 · Pedidos: ","es":"Pedidos: "},
+  "footMail":{"zh-Hant":"聯繫訂購：","zh-Hans":"联系订购：","es":"Pedidos: "},
   "footNote":{"zh-Hant":"點任意菇 · 查看詳細介紹","zh-Hans":"点任意菇 · 查看详细介绍","es":"Toque cualquier hongo · ver detalle"},
   "maintTitle":{"zh-Hant":"網站暫時關閉","zh-Hans":"网站暂时关闭","es":"Sitio temporalmente cerrado"},
   "maintText":{"zh-Hant":"我們正在休息整理中，歡迎稍後再來。如有任何問題，歡迎來信：","zh-Hans":"我们正在休息整理中，欢迎稍后再来。如有任何问题，欢迎来信：","es":"Estamos descansando y organizando. Vuelva pronto. Ante cualquier consulta, escríbanos a:"},
@@ -264,9 +265,10 @@ function renderGrid(){
     a.href = p.page || '#';
     var imgHtml = p.img ? '<div class="ph"><img src="'+p.img+'" alt="'+p.es+'"></div>' : '<div class="ph"></div>';
     var sold = p.soldout ? '<div class="sold">'+t('soldout',LANG)+'</div>' : '';
-    var zhShow = LANG==='es' ? p.zh : p.zh;
-    var esShow = LANG==='es' ? p.es : p.es;
-    a.innerHTML = imgHtml + sold + '<div class="nm"><div class="es">'+p.es+'</div><div class="zh">'+p.zh+'</div></div>';
+    var nameHtml = LANG==='es'
+      ? '<div class="es">'+p.es+'</div>'
+      : '<div class="zh">'+p.zh+'</div>';
+    a.innerHTML = imgHtml + sold + '<div class="nm">'+nameHtml+'</div>';
     g.appendChild(a);
   });
 }
@@ -278,6 +280,7 @@ function setLang(l){
     var k=el.getAttribute('data-l');
     if(k==='heroTitle'||k==='iquote'){ el.innerHTML = t(k,l); } else { el.textContent = t(k,l); }
   });
+  renderGrid();
 }
 function setSize(d){
   SIZE = Math.max(-3, Math.min(3, SIZE + d));
