@@ -28,18 +28,22 @@
   .wrap{max-width:760px;margin:0 auto;padding:16px 18px 0 18px;}
   .hidden{display:none!important;}
   .toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px;}
-  .logo-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
-  .logo-row img{width:56px;height:56px;border-radius:50%;object-fit:cover;box-shadow:var(--shadow);}
-  .logo-row .lb{font-size:20px;font-weight:800;letter-spacing:1px;}
-  .logo-row .lb em{font-style:normal;color:var(--accent);}
-  .back-btn{display:flex;align-items:center;gap:7px;background:var(--card);border:1px solid var(--cardline);border-radius:999px;padding:8px 15px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);font-size:13px;font-weight:700;}
-  .lang-pill{display:flex;gap:4px;background:var(--card);border:1px solid var(--cardline);border-radius:999px;padding:4px;box-shadow:var(--shadow);}
-  .lang-pill button{border:none;background:transparent;color:var(--ink2);font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;font-family:inherit;}
-  .lang-pill button.on{background:var(--accent);color:#fff;}
+  .logo-row{display:flex;align-items:center;gap:13px;margin-bottom:14px;}
+  .logo-row img{width:52px;height:52px;border-radius:50%;object-fit:cover;box-shadow:0 3px 12px rgba(90,70,54,.22);}
+  .logo-row .lb{font-size:21px;font-weight:700;letter-spacing:2.5px;color:var(--ink);font-family:Georgia,'Times New Roman',serif;}
+  .logo-row .lb .f{font-weight:700;}
+  .logo-row .lb .e{font-weight:700;}
+  .back-btn{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--cardline);border-radius:14px;padding:9px 15px;box-shadow:var(--shadow);text-decoration:none;color:var(--ink);font-size:13px;font-weight:600;backdrop-filter:none;}
+  .back-btn svg{flex:none;}
   .tool-icons{display:flex;gap:8px;align-items:center;}
-  .icon-btn{width:38px;height:38px;border-radius:50%;background:var(--card);border:1px solid var(--cardline);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:16px;}
-  .size-pill{display:flex;gap:3px;background:var(--card);border:1px solid var(--cardline);border-radius:999px;padding:3px;box-shadow:var(--shadow);}
-  .size-pill button{border:none;background:transparent;color:var(--ink);font-weight:800;font-size:14px;padding:5px 11px;border-radius:999px;cursor:pointer;font-family:inherit;}
+  .lang-pill{display:flex;gap:3px;background:var(--card);border:1px solid var(--cardline);border-radius:14px;padding:4px;box-shadow:var(--shadow);backdrop-filter:none;}
+  .lang-pill button{border:none;background:transparent;color:var(--ink2);font-size:12.5px;font-weight:600;padding:7px 13px;border-radius:10px;cursor:pointer;font-family:inherit;transition:background .2s,color .2s;}
+  .lang-pill button.on{background:linear-gradient(135deg,#C96A3C,#B85A2E);color:#fff;box-shadow:0 2px 8px rgba(201,106,60,.35);}
+  .icon-btn{width:38px;height:38px;border-radius:13px;background:var(--card);border:1px solid var(--cardline);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);transition:transform .15s;}
+  .icon-btn:active{transform:scale(.92);}
+  .size-pill{display:flex;gap:3px;background:var(--card);border:1px solid var(--cardline);border-radius:14px;padding:4px;box-shadow:var(--shadow);backdrop-filter:none;}
+  .size-pill button{border:none;background:transparent;color:var(--ink);padding:6px 12px;border-radius:10px;cursor:pointer;font-family:Georgia,serif;font-size:15px;font-weight:700;letter-spacing:.5px;}
+  .size-pill button:active{background:rgba(201,106,60,.14);}
   /* hero 轮播 */
   .hero{position:relative;border-radius:26px;overflow:hidden;box-shadow:var(--shadow);aspect-ratio:1/1;max-height:640px;margin-bottom:16px;}
   .hero img{width:100%;height:100%;object-fit:cover;display:block;}
@@ -107,7 +111,7 @@
 <div id="sitePage">
   <div class="wrap">
     <div class="toolbar">
-      <a class="back-btn" href="index.html" data-l="back">← 全部產品</a>
+      <a class="back-btn" href="index.html" data-l="back"><svg width="11" height="11" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4l-8 8 8 8" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span>全部產品</span></a>
       <div style="display:flex;gap:8px;align-items:center;">
         <div class="lang-pill">
           <button data-lang="zh-Hant" onclick="setLang('zh-Hant')">繁</button>
@@ -115,17 +119,18 @@
           <button data-lang="es" onclick="setLang('es')">ES</button>
         </div>
         <div class="size-pill">
-          <button onclick="setSize(-1)">A−</button>
-          <button onclick="setSize(0)">A</button>
-          <button onclick="setSize(1)">A+</button>
+          <button onclick="setSize(-1)" title="縮小字體">A−</button>
+          <button onclick="setSize(1)" title="放大字體">A+</button>
         </div>
-        <button class="icon-btn" id="themeBtn" onclick="toggleTheme()">☀</button>
+        <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="日夜模式">
+          <svg id="themeIcon" width="17" height="17" viewBox="0 0 24 24" aria-hidden="true"><path id="themePath" d="M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z" fill="currentColor"/></svg>
+        </button>
       </div>
     </div>
 
     <div class="logo-row">
       <img src="https://aka.doubaocdn.com/s/BOaOq0jgnV" alt="Fungi Enoki Logo">
-      <div class="lb">Fungi <em>Enoki</em></div>
+      <div class="lb"><span class="f">Fungi</span> <span class="e">Enoki</span></div>
     </div>
 
     <div class="hero">
@@ -287,7 +292,8 @@ function setSize(d){
 function toggleTheme(){
   THEME=THEME==='day'?'night':'day'; localStorage.setItem('fe_theme',THEME);
   document.documentElement.setAttribute('data-theme',THEME);
-  document.getElementById('themeBtn').textContent=THEME==='day'?'☾':'☀';
+  var tp=document.getElementById('themePath');
+  if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
 var IMGS=['https://aka.doubaocdn.com/s/5Us6VLC4MQ','https://aka.doubaocdn.com/s/ucNNm8c1Rv','https://aka.doubaocdn.com/s/jmLAIV96wk'];
