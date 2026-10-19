@@ -64,6 +64,16 @@
   .hero .line{width:54px;height:3px;border-radius:99px;background:linear-gradient(90deg,var(--gold) 0%,rgba(217,164,65,0) 100%);margin-top:12px;}
   .hero .t2{font-size:0.781rem;font-weight:500;color:#EFE4D0;margin-top:10px;}
 
+  /* 欢迎与阅读说明 */
+  .intro{position:relative;z-index:1;margin-top:18px;}
+  .welcome{background:var(--card);border:1px solid var(--cardline);border-radius:24px;padding:20px 20px 18px 20px;box-shadow:var(--shadow);}
+  .welcome .it1{font-family:Georgia,serif;font-size:1.313rem;font-weight:700;letter-spacing:.4px;color:var(--ink);}
+  .welcome .it2{margin-top:9px;font-size:0.844rem;line-height:1.75;color:var(--ink2);}
+  .welcome .iquote{margin-top:11px;font-size:0.844rem;font-style:italic;color:var(--ink);line-height:1.7;}
+  .welcome .iread{margin-top:12px;border-top:1px dashed rgba(107,81,56,0.25);padding-top:12px;}
+  .welcome .ir1{font-size:0.813rem;font-weight:800;color:var(--ink);}
+  .welcome .ir2{margin-top:5px;font-size:0.813rem;line-height:1.7;color:var(--ink2);}
+
   /* 产品网格 */
   .grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:22px;padding-bottom:20px;}
   .card{
@@ -158,6 +168,19 @@
       </div>
     </div>
 
+    <!-- 中：欢迎与阅读说明 -->
+    <div class="intro">
+      <div class="welcome">
+        <div class="it1" data-l="welcomeTitle">Bienvenido al reino de los hongos</div>
+        <div class="it2" data-l="welcomeBody">En Fungi Enoki cultivamos hongos frescos, 100 % naturales y 100 % veganos, con alto valor nutritivo y mucho sabor. Cada variedad tiene su propia personalidad: algunas aportan la textura de una carne vegetal, otras un aroma a almendra, a panceta o a caramelo; otras se prefieren por su tradición medicinal en Asia. Este catálogo te presenta cada una con su sabor, su forma de cocinarla, su perfil nutricional y lo que se sabe sobre sus beneficios.</div>
+        <div class="iquote">«Los hongos pueden salvar el mundo.» — Paul Stamets, <i>Mycelium Running</i></div>
+        <div class="iread">
+          <div class="ir1" data-l="readTitle">Cómo leer este catálogo</div>
+          <div class="ir2" data-l="readBody">Los beneficios se describen según la medicina tradicional asiática y estudios científicos, muchos de ellos preliminares (en laboratorio o en animales). Los hongos son alimentos o suplementos y no reemplazan ningún tratamiento médico: ante una enfermedad, un embarazo o el uso de medicamentos, consultá primero con tu profesional de la salud.</div>
+        </div>
+      </div>
+    </div>
+
     <!-- 中：产品目录 -->
     <div class="grid" id="grid"></div>
 
@@ -215,7 +238,11 @@ var LANGS = {
   "footNote":{"zh-Hant":"點任意菇 · 查看詳細介紹","zh-Hans":"点任意菇 · 查看详细介绍","es":"Toque cualquier hongo · ver detalle"},
   "maintTitle":{"zh-Hant":"網站暫時關閉","zh-Hans":"网站暂时关闭","es":"Sitio temporalmente cerrado"},
   "maintText":{"zh-Hant":"我們正在休息整理中，歡迎稍後再來。如有任何問題，歡迎來信：","zh-Hans":"我们正在休息整理中，欢迎稍后再来。如有任何问题，欢迎来信：","es":"Estamos descansando y organizando. Vuelva pronto. Ante cualquier consulta, escríbanos a:"},
-  "soldout":{"zh-Hant":"暫停供貨","zh-Hans":"暂停供货","es":"Temporalmente agotado"}
+  "soldout":{"zh-Hant":"暫停供貨","zh-Hans":"暂停供货","es":"Temporalmente agotado"},
+  "welcomeTitle":{"zh-Hant":"歡迎來到蘑菇王國","zh-Hans":"欢迎来到蘑菇王国","es":"Bienvenido al reino de los hongos"},
+  "welcomeBody":{"zh-Hant":"在 Fungi Enoki，我們種植新鮮、100% 天然、100% 純素的蘑菇，營養價值高、風味十足。每一種蘑菇都有自己的個性：有的帶來植物肉的口感，有的散發杏仁、培根或焦糖的香氣；有的則因亞洲的藥用傳統而備受喜愛。這份目錄將為你逐一介紹它們的風味、烹調方式、營養成分，以及目前所知對健康的好處。","zh-Hans":"在 Fungi Enoki，我们种植新鲜、100% 天然、100% 纯素的蘑菇，营养价值高、风味十足。每一种蘑菇都有自己的个性：有的带来植物肉的口感，有的散发杏仁、培根或焦糖的香气；有的则因亚洲的药用传统而备受喜爱。这份目录将为你逐一介绍它们的风味、烹调方式、营养成分，以及目前所知对健康的好处。","es":"En Fungi Enoki cultivamos hongos frescos, 100 % naturales y 100 % veganos, con alto valor nutritivo y mucho sabor. Cada variedad tiene su propia personalidad: algunas aportan la textura de una carne vegetal, otras un aroma a almendra, a panceta o a caramelo; otras se prefieren por su tradición medicinal en Asia. Este catálogo te presenta cada una con su sabor, su forma de cocinarla, su perfil nutricional y lo que se sabe sobre sus beneficios."},
+  "readTitle":{"zh-Hant":"如何閱讀這份目錄","zh-Hans":"如何阅读这份目录","es":"Cómo leer este catálogo"},
+  "readBody":{"zh-Hant":"好處的描述依據亞洲傳統醫學與科學研究，其中許多研究仍屬初步階段（實驗室或動物實驗）。蘑菇是食物或補充品，不能取代任何醫療：生病、懷孕或服藥期間，請先諮詢你的醫療專業人員。","zh-Hans":"好处的描述依据亚洲传统医学与科学研究，其中许多研究仍属初步阶段（实验室或动物实验）。蘑菇是食物或补充品，不能取代任何医疗：生病、怀孕或服药期间，请先咨询你的医疗专业人员。","es":"Los beneficios se describen según la medicina tradicional asiática y estudios científicos, muchos de ellos preliminares (en laboratorio o en animales). Los hongos son alimentos o suplementos y no reemplazan ningún tratamiento médico: ante una enfermedad, un embarazo o el uso de medicamentos, consultá primero con tu profesional de la salud."}
 };
 function t(key,lang){ var m=LANGS[key]; return m? (m[lang]||m['zh-Hant']) : ''; }
 
