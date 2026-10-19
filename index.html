@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fungi Enoki · 蘑菇目錄 | Catálogo de Hongos</title>
+<style>
+  :root{
+    --bg1:#F7F3EA; --bg2:#EFE9DA; --bg3:#E6DFCC;
+    --ink:#5A4636; --ink2:#9C7E6E; --accent:#C96A3C; --card:rgba(255,255,255,0.82);
+    --cardline:rgba(255,255,255,0.95); --shadow:0 6px 20px rgba(90,70,54,0.10);
+  }
+  [data-theme="night"]{
+    --bg1:#201A13; --bg2:#2A2119; --bg3:#35291E;
+    --ink:#F0E6D6; --ink2:#B49B86; --accent:#E89262; --card:rgba(255,255,255,0.08);
+    --cardline:rgba(255,255,255,0.14); --shadow:0 6px 20px rgba(0,0,0,0.35);
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:-apple-system,'PingFang TC','PingFang SC','Microsoft YaHei','Noto Sans TC',sans-serif;
+    background:linear-gradient(170deg,var(--bg1) 0%,var(--bg2) 55%,var(--bg3) 100%);
+    color:var(--ink); min-height:100vh;
+    transition:background .35s,color .35s;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:16px 18px 0 18px;}
+  .hidden{display:none!important;}
+  /* 顶部工具条 */
+  .toolbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:18px;}
+  .lang-pill{display:flex;gap:4px;background:var(--card);border:1px solid var(--cardline);border-radius:999px;padding:4px;box-shadow:var(--shadow);}
+  .lang-pill button{border:none;background:transparent;color:var(--ink2);font-size:13px;font-weight:700;padding:7px 13px;border-radius:999px;cursor:pointer;font-family:inherit;}
+  .lang-pill button.on{background:var(--accent);color:#fff;}
+  .tool-icons{display:flex;gap:8px;align-items:center;}
+  .icon-btn{width:38px;height:38px;border-radius:50%;background:var(--card);border:1px solid var(--cardline);box-shadow:var(--shadow);cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ink);font-size:16px;}
+  .size-pill{display:flex;gap:3px;background:var(--card);border:1px solid var(--cardline);border-radius:999px;padding:3px;box-shadow:var(--shadow);}
+  .size-pill button{border:none;background:transparent;color:var(--ink);font-weight:800;font-size:14px;padding:5px 11px;border-radius:999px;cursor:pointer;}
+  /* 品牌 hero */
+  .hero{text-align:center;padding:30px 10px 26px 10px;}
+  .brand{font-size:34px;font-weight:800;letter-spacing:1px;color:var(--ink);}
+  .brand em{font-style:normal;color:var(--accent);}
+  .tagline{font-size:14px;color:var(--ink2);margin-top:8px;letter-spacing:2px;}
+  /* 网格 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:18px;padding-bottom:34px;}
+  .card{
+    background:var(--card);border:1px solid var(--cardline);border-radius:26px;overflow:hidden;
+    box-shadow:var(--shadow);text-decoration:none;color:var(--ink);display:block;
+    transition:transform .18s,box-shadow .18s;
+  }
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(90,70,54,0.16);}
+  .card .ph{position:relative;width:100%;aspect-ratio:1/1;overflow:hidden;background:#E9E2D4;}
+  .card .ph img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+  .card:hover .ph img{transform:scale(1.05);}
+  .card .nm{padding:13px 16px 15px 16px;}
+  .card .nm .zh{font-size:17px;font-weight:800;}
+  .card .nm .es{font-size:13px;font-style:italic;color:var(--ink2);margin-top:3px;}
+  .card .nm .tag{margin-top:8px;display:inline-block;font-size:11px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:3px 10px;}
+  .card.soldout{opacity:.72;}
+  .card.soldout .tag{color:#A08070;border-color:#A08070;}
+  /* 底部 */
+  footer{margin-top:10px;background:linear-gradient(120deg,#5A4636,#3E3128);color:#E8DCC8;padding:30px 20px 40px 20px;text-align:center;}
+  [data-theme="night"] footer{background:linear-gradient(120deg,#14100B,#1D1610);}
+  footer .fbrand{font-size:18px;font-weight:800;letter-spacing:2px;}
+  footer .fmail{margin-top:10px;font-size:13px;color:#CBB79F;}
+  footer .fmail a{color:#E8DCC8;text-decoration:none;border-bottom:1px dotted #CBB79F;}
+  footer .fnote{margin-top:14px;font-size:11px;color:#A89077;letter-spacing:1px;}
+  /* 维护模式卡片 */
+  .maint-card{
+    max-width:460px;margin:60px auto;text-align:center;background:var(--card);
+    border:1px solid var(--cardline);border-radius:26px;padding:40px 28px;box-shadow:var(--shadow);
+  }
+  .maint-card .m1{font-size:22px;font-weight:800;}
+  .maint-card .m2{margin-top:12px;font-size:14px;color:var(--ink2);line-height:1.7;}
+  @media (max-width:640px){
+    .brand{font-size:27px;}
+    .grid{grid-template-columns:repeat(2,1fr);gap:12px;}
+    .card .nm{padding:10px 12px 12px 12px;}
+    .card .nm .zh{font-size:15px;}
+    .card .nm .es{font-size:11px;}
+  }
+</style>
+</head>
+<body>
+<div id="maintPage" class="hidden">
+  <div class="maint-card">
+    <div data-l="maintTitle" class="m1">網站暫時關閉</div>
+    <div data-l="maintText" class="m2">我們正在休息整理中，歡迎稍後再來。如有任何問題，歡迎來信：<br><a href="mailto:fungienoki@gmail.com" style="color:var(--accent);">fungienoki@gmail.com</a></div>
+  </div>
+</div>
+
+<div id="sitePage">
+  <div class="wrap">
+    <div class="toolbar">
+      <div class="lang-pill" id="langPill">
+        <button data-lang="zh-Hant" onclick="setLang('zh-Hant')">繁</button>
+        <button data-lang="zh-Hans" onclick="setLang('zh-Hans')">简</button>
+        <button data-lang="es" onclick="setLang('es')">ES</button>
+      </div>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <div class="size-pill">
+          <button onclick="setSize(-1)">A−</button>
+          <button onclick="setSize(0)">A</button>
+          <button onclick="setSize(1)">A+</button>
+        </div>
+        <button class="icon-btn" id="themeBtn" onclick="toggleTheme()" title="日夜模式">☀</button>
+      </div>
+    </div>
+
+    <div class="hero">
+      <div class="brand">Fungi <em>Enoki</em></div>
+      <div class="tagline" data-l="tagline">新鮮蘑菇 · 每日直送 · 阿根廷手工栽培</div>
+    </div>
+
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <footer>
+    <div class="fbrand">FUNGI ENOKI</div>
+    <div class="fmail">Email：<a href="mailto:fungienoki@gmail.com">fungienoki@gmail.com</a></div>
+    <div class="fnote" data-l="footnote">新鮮蘑菇 · 產地直送</div>
+  </footer>
+</div>
+
+<script>
+// ===== 品种数据 =====
+// 状态: show=显示 hide=隐藏（隐藏不进总目录，但有独立页面与QR）
+var PRODUCTS = [
+  {id:"girgolas-azules", zh:"灰平菇", es:"Gírgolas Azules", img:"https://aka.doubaocdn.com/s/ucNNm8c1Rv", status:"show", page:"girgolas-azules.html"},
+  {id:"perlas-negras", zh:"黑珍珠", es:"Perlas Negras", img:"https://aka.doubaocdn.com/s/brlfk91JT7", status:"show", page:"perlas-negras.html"},
+  {id:"coral", zh:"珊瑚菇", es:"Gírgolas Doradas", img:"https://aka.doubaocdn.com/s/r72Bz2r8cU", status:"hide", page:"coral.html"},
+  {id:"rosadas", zh:"粉紅玫瑰菇", es:"Gírgolas Rosadas", img:"https://aka.doubaocdn.com/s/7Uo0dsPSzF", status:"show", page:"rosadas.html"},
+  {id:"ostra-rey", zh:"杏鮑菇", es:"Ostra Rey", img:"https://aka.doubaocdn.com/s/dTvvuWWV3p", status:"show", page:"ostra-rey.html"},
+  {id:"enoki", zh:"金針菇", es:"Enokitake", img:"https://aka.doubaocdn.com/s/5Qao97uo91", status:"show", page:"enoki.html"},
+  {id:"shiitake", zh:"香菇", es:"Shiitake", img:"https://aka.doubaocdn.com/s/IXtaezmz2W", status:"show", page:"shiitake.html"},
+  {id:"shimeji", zh:"鴻禧菇", es:"Shimeji", img:"https://aka.doubaocdn.com/s/wHgPOnRFxb", status:"show", page:"shimeji.html"},
+  {id:"pioppino", zh:"茶樹菇", es:"Pioppino", img:"https://aka.doubaocdn.com/s/LGECQIOdcy", status:"show", page:"pioppino.html"},
+  {id:"nuez", zh:"栗子蘑菇", es:"Hongo de Nuez", img:"https://aka.doubaocdn.com/s/LXmV55dwBv", status:"show", page:"nuez.html"},
+  {id:"nameko", zh:"滑子菇", es:"Nameko", img:"https://aka.doubaocdn.com/s/TkGtsjnR6V", status:"show", page:"nameko.html"},
+  {id:"maitake", zh:"灰樹花", es:"Maitake", img:"", status:"hide", page:"maitake.html"},
+  {id:"hericium", zh:"猴頭菇", es:"Melena de León", img:"https://aka.doubaocdn.com/s/KLOHSuBfaU", status:"show", page:"hericium.html"},
+  {id:"auricularia", zh:"黑木耳", es:"Auricularia", img:"https://aka.doubaocdn.com/s/mTd1rhCJ4Z", status:"show", page:"auricularia.html"},
+  {id:"morilla", zh:"羊肚菌", es:"Morilla", img:"", status:"hide", page:"morilla.html"},
+  {id:"cordyceps", zh:"蟲草花", es:"Cordyceps militaris", img:"", status:"hide", page:"cordyceps.html"},
+  {id:"stropharia", zh:"大球蓋菇", es:"Stropharia", img:"", status:"hide", page:"stropharia.html"},
+  {id:"trametes", zh:"雲芝", es:"Cola de Pavo", img:"", status:"hide", page:"trametes.html"},
+  {id:"reishi", zh:"靈芝", es:"Ganoderma lucidum", img:"https://aka.doubaocdn.com/s/MLbTdd3xn1", status:"show", page:"reishi.html"}
+];
+
+// ===== 维护模式开关（GitHub 上改 maintenance.json 的 "on":true/false）=====
+fetch('maintenance.json',{cache:'no-store'}).then(function(r){return r.json();}).then(function(d){
+  if(d && d.on === true){ showMaint(); }
+}).catch(function(){ /* 文件不存在 = 正常开放 */ });
+
+function showMaint(){
+  document.getElementById('sitePage').classList.add('hidden');
+  document.getElementById('maintPage').classList.remove('hidden');
+}
+
+// ===== 语言 =====
+var LANGS = {
+  "tagline":{"zh-Hant":"新鮮蘑菇 · 每日直送 · 阿根廷手工栽培","zh-Hans":"新鲜蘑菇 · 每日直送 · 阿根廷手工栽培","es":"Hongos frescos · entrega diaria · cultivo artesanal en Argentina"},
+  "footnote":{"zh-Hant":"新鮮蘑菇 · 產地直送","zh-Hans":"新鲜蘑菇 · 产地直送","es":"Hongos frescos · entrega directa"},
+  "maintTitle":{"zh-Hant":"網站暫時關閉","zh-Hans":"网站暂时关闭","es":"Sitio temporalmente cerrado"},
+  "maintText":{"zh-Hant":"我們正在休息整理中，歡迎稍後再來。如有任何問題，歡迎來信：","zh-Hans":"我们正在休息整理中，欢迎稍后再来。如有任何问题，欢迎来信：","es":"Estamos descansando y organizando. Vuelva pronto. Ante cualquier consulta, escríbanos a:"}
+};
+function t(key,lang){ var m=LANGS[key]; return m?m[lang]:(m?m['zh-Hant']:''); }
+
+// ===== 语言/日夜/字号 =====
+var LANG = 'zh-Hant';
+var savedLang = localStorage.getItem('fe_lang');
+if(savedLang) LANG = savedLang;
+var THEME = localStorage.getItem('fe_theme') || 'day';
+var SIZE = parseInt(localStorage.getItem('fe_size')||'0',10);
+
+function renderGrid(){
+  var g = document.getElementById('grid');
+  g.innerHTML = '';
+  PRODUCTS.forEach(function(p){
+    if(p.status !== 'show') return;
+    var isSoldout = p.soldout === true;
+    var a = document.createElement('a');
+    a.className = 'card' + (isSoldout?' soldout':'');
+    a.href = p.page || '#';
+    var imgHtml = p.img ? '<div class="ph"><img src="'+p.img+'" alt="'+p.es+'"></div>' : '<div class="ph"></div>';
+    var tagHtml = isSoldout ? '<span class="tag">'+t('soldout',LANG)+'</span>' : '';
+    a.innerHTML = imgHtml + '<div class="nm"><div class="zh">'+(LANG==='es'?p.es:p.zh)+'</div><div class="es">'+(LANG==='es'?p.zh:p.es)+'</div>'+tagHtml+'</div>';
+    g.appendChild(a);
+  });
+}
+LANGS['soldout'] = {'zh-Hant':'暫時缺貨','zh-Hans':'暂时缺货','es':'Temporalmente agotado'};
+
+function setLang(l){
+  LANG = l; localStorage.setItem('fe_lang',l);
+  document.querySelectorAll('#langPill button').forEach(function(b){ b.classList.toggle('on', b.dataset.lang===l); });
+  document.querySelectorAll('[data-l]').forEach(function(el){
+    var k=el.getAttribute('data-l');
+    el.textContent = t(k,l);
+  });
+  renderGrid();
+}
+function setSize(d){
+  SIZE = Math.max(-2, Math.min(2, SIZE + d));
+  localStorage.setItem('fe_size', SIZE);
+  var fs = 100 + SIZE*8;
+  document.body.style.fontSize = fs + '%';
+  document.querySelector('.brand').style.fontSize = (34*(fs/100)) + 'px';
+}
+function toggleTheme(){
+  THEME = THEME==='day'?'night':'day';
+  localStorage.setItem('fe_theme',THEME);
+  document.documentElement.setAttribute('data-theme',THEME);
+  document.getElementById('themeBtn').textContent = THEME==='day'?'☾':'☀';
+}
+
+// 初始化
+(function(){
+  setLang(LANG);
+  setSize(0);
+  if(THEME==='night') toggleTheme();
+  // 系统语言自动检测（繁/简/西）
+  if(!savedLang){
+    var sys = (navigator.language||'zh-TW').toLowerCase();
+    if(sys.indexOf('es')===0) setLang('es');
+    else if(sys.indexOf('zh')===0) setLang(sys.indexOf('cn')>=0||sys.indexOf('hans')>=0?'zh-Hans':'zh-Hant');
+  }
+})();
+</script>
+</body>
+</html>
