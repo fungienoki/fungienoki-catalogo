@@ -156,8 +156,8 @@
     </div>
 
     <div class="hero">
-      <img id="heroImg" src="https://aka.doubaocdn.com/s/Ae7Wksn9ul" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/5Qao97uo91" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -201,6 +201,17 @@
         <span class="chip" data-l="n3">支持消化</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="rt1">食譜圖片</span></h2>
+      <div class="rnote" data-l="rt2">點擊圖片可放大查看</div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/adR3oxWLcM" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/O44LzxD8jV" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/lISUmW8unU" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/QOrTw5fv7A" alt="" loading="lazy" onclick="openLb(this)"></div></div>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#FFFFFF" stroke="none"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
+      <div data-l="yt2" style="font-size:0.719rem;color:var(--ink2);margin-bottom:4px;">點擊卡片，在頁面內直接觀看，無需跳出</div>
+      <div id="ytList"></div>
+      <div id="ytPlayer"><iframe id="ytFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
     </div>
 
   <footer>
@@ -243,8 +254,12 @@ var T = {
   n1:{'zh-Hant':'低熱量','zh-Hans':'低热量','es':'Bajo en calorías'},
   n2:{'zh-Hant':'膳食纖維','zh-Hans':'膳食纤维','es':'Fibra'},
   n3:{'zh-Hant':'支持消化','zh-Hans':'支持消化','es':'Digestión'},
+  rt1:{'zh-Hant':'食譜圖片','zh-Hans':'食谱图片','es':'Fotos de recetas'},
+  rt2:{'zh-Hant':'點擊圖片可放大查看','zh-Hans':'点击图片可放大查看','es':'Tocá la imagen para verla en grande'},
+  yt1:{'zh-Hant':'YouTube 食譜教學 · 3 種做法','zh-Hans':'YouTube 食谱教学 · 3 种做法','es':'Recetas en YouTube · 3 formas'},
+  yt2:{'zh-Hant':'點擊卡片，在頁面內直接觀看，無需跳出','zh-Hans':'点击卡片，在页面内直接观看，无需跳出','es':'Hacé clic en la tarjeta y mirá dentro de la página, sin salir'},
 };
-var RECIPES = [];
+var RECIPES = [{"v": "-b3c_QFxBck", "zh": "培根裹金針菇", "es": "Champiñones Enoki envueltos en panceta"}, {"v": "x3TOaRLx7Yk", "zh": "金針菇豆腐卷", "es": "Rollitos de tofu con Enoki"}, {"v": "iKTrKXWI5lM", "zh": "香脆金針菇米飯碗", "es": "Bowl de arroz con Enoki crocante"}];
 // 状态
 var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';
@@ -293,7 +308,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/Ae7Wksn9ul", "https://aka.doubaocdn.com/s/5Qao97uo91", "https://aka.doubaocdn.com/s/1OyFEGjYUE", "https://aka.doubaocdn.com/s/7y8B9iStNl"];
+var IMGS=["https://aka.doubaocdn.com/s/5Qao97uo91", "https://aka.doubaocdn.com/s/7y8B9iStNl", "https://aka.doubaocdn.com/s/g8TtsIcEMz", "https://aka.doubaocdn.com/s/X8co5C5If3", "https://aka.doubaocdn.com/s/QUuhpxjo3V", "https://aka.doubaocdn.com/s/paPhehJ3XR"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
