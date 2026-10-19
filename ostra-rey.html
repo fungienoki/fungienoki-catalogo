@@ -104,6 +104,17 @@
     .sec{padding:16px 15px;}
     .nutri .big{font-size:1.375rem;}
   }
+
+  .rdish{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+  .rdish .rd{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;background:var(--card);}
+  .rdish .rd img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .rnote{margin-top:8px;font-size:0.719rem;color:var(--ink2);}
+  .lbox{position:fixed;inset:0;z-index:99;background:rgba(20,22,18,0.9);display:none;align-items:center;justify-content:center;padding:24px;}
+  .lbox.open{display:flex;}
+  .lbox img{max-width:100%;max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+  .lbox .cl{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.14);border:none;color:#fff;font-size:1.25rem;cursor:pointer;}
+  .thumb.ph{background:linear-gradient(145deg,#8A6A52,#6B5138);}
+  .thumb.ph span{width:26px;height:26px;}
 </style>
 </head>
 <body>
@@ -140,8 +151,8 @@
     </div>
 
     <div class="hero">
-      <img id="heroImg" src="https://aka.doubaocdn.com/s/hjL1Xk96wL" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/dTvvuWWV3p" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -185,6 +196,17 @@
         <span class="chip" data-l="n3">麥角硫因</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="rt1">食譜圖片</span></h2>
+      <div class="rnote" data-l="rt2">點擊圖片可放大查看</div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/rKHZW1RVUS" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/1FQL9FHWR4" alt="" loading="lazy" onclick="openLb(this)"></div></div>
+    </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#FFFFFF" stroke="none"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
+      <div data-l="yt2" style="font-size:0.719rem;color:var(--ink2);margin-bottom:4px;">點擊卡片，在頁面內直接觀看，無需跳出</div>
+      <div id="ytList"></div>
+      <div id="ytPlayer"><iframe id="ytFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
     </div>
 
   <footer>
@@ -227,19 +249,31 @@ var T = {
   n1:{'zh-Hant':'低熱量','zh-Hans':'低热量','es':'Bajo en calorías'},
   n2:{'zh-Hant':'高蛋白','zh-Hans':'高蛋白','es':'Proteínas'},
   n3:{'zh-Hant':'麥角硫因','zh-Hans':'麦角硫因','es':'Ergotioneína'},
+  rt1:{'zh-Hant':'食譜圖片','zh-Hans':'食谱图片','es':'Fotos de recetas'},
+  rt2:{'zh-Hant':'點擊圖片可放大查看','zh-Hans':'点击图片可放大查看','es':'Tocá la imagen para verla en grande'},
+  yt1:{'zh-Hant':'YouTube 食譜教學 · 8 種做法','zh-Hans':'YouTube 食谱教学 · 8 种做法','es':'Recetas en YouTube · 8 formas'},
+  yt2:{'zh-Hant':'點擊卡片，在頁面內直接觀看，無需跳出','zh-Hans':'点击卡片，在页面内直接观看，无需跳出','es':'Hacé clic en la tarjeta y mirá dentro de la página, sin salir'},
 };
-var RECIPES = [];
+var RECIPES = [{"v": "VP2-aMsP474", "zh": "辣味花生老姜杏鲍菇", "es": "Ostra Rey Satay con maní picante y jengibre"}, {"v": "iw281ZVLrA8", "zh": "炸咸酥豆腐与杏鲍菇浓汁", "es": "Tofus Fritos con Salsa de Ostra Rey"}, {"v": "V6hp1OCmxsI", "zh": "杏鲍菇黄葡萄酒油酱干贝", "es": "Vieras Veganas de Ostra Rey con Salsa de Mantequilla de Vino"}, {"v": "_2CLfd8IheA", "zh": "杏鲍菇鸡肉盘", "es": "El Pollo con Ostra Rey"}, {"v": "zalI5lIYGwM", "zh": "鲜蘑薄片佐香米饭", "es": "Escalopes de Hongos con Arroz"}, {"v": "7wXvCJB0nbg", "zh": "韓式杏鮑菇燒烤", "es": "Ostra Rey Asada tipo coreano"}, {"v": "pyuCcG5tQqg", "zh": "香煎素肋排", "es": "Costillas Veganas"}, {"v": "RReH0caldRM", "zh": "田園烤蔬中央盛盤", "es": "Bandeja Central de Verduras Asadas Campestres"}];
 // 状态
 var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';
 var SIZE = parseInt(localStorage.getItem('fe_size')||'0',10);
+
+function openLb(img){
+  var lb=document.getElementById('lb'), bi=document.getElementById('lbImg');
+  if(!lb) return; bi.src=img.src; lb.classList.add('open');
+}
+function closeLb(){ var lb=document.getElementById('lb'); if(lb) lb.classList.remove('open'); }
 function renderYt(){
   var g = document.getElementById('ytList'); if(!g) return; g.innerHTML='';
   RECIPES.forEach(function(r,i){
     var main = LANG==='es'?r.es:r.zh, sub = LANG==='es'?r.zh:r.es;
     var d = document.createElement('div');
     d.className='yt-card'; d.onclick=function(){playYt(i);};
-    d.innerHTML='<div class="thumb"><img src="'+r.th+'"><span><svg width="10" height="10" viewBox="0 0 24 24"><polygon points="9,5 20,12 9,19" fill="#fff"/></svg></span></div><div style="flex:1;min-width:0;"><div class="t1">'+main+'</div><div class="t2">'+sub+'</div></div><span class="go">播放 →</span>';
+    d.innerHTML=(r.th
+      ?'<div class="thumb"><img src="'+r.th+'"><span>'
+      :'<div class="thumb ph"><span>')+'<svg width="10" height="10" viewBox="0 0 24 24"><polygon points="9,5 20,12 9,19" fill="#fff"/></svg></span></div><div style="flex:1;min-width:0;"><div class="t1">'+main+'</div><div class="t2">'+sub+'</div></div><span class="go">播放 →</span>';
     g.appendChild(d);
   });
 }
@@ -269,7 +303,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/hjL1Xk96wL", "https://aka.doubaocdn.com/s/dTvvuWWV3p", "https://aka.doubaocdn.com/s/cigzqVy0L7", "https://aka.doubaocdn.com/s/bjUldL4k0a", "https://aka.doubaocdn.com/s/l48Us95Rfp"];
+var IMGS=["https://aka.doubaocdn.com/s/dTvvuWWV3p", "https://aka.doubaocdn.com/s/bjUldL4k0a", "https://aka.doubaocdn.com/s/l48Us95Rfp", "https://aka.doubaocdn.com/s/rKHZW1RVUS", "https://aka.doubaocdn.com/s/eksRIMkfSx", "https://aka.doubaocdn.com/s/tOqqZY65ns"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
@@ -284,5 +318,6 @@ setInterval(function(){
   if(THEME==='night') toggleTheme();
 })();
 </script>
+<div class="lbox" id="lb" onclick="closeLb()"><button class="cl" aria-label="關閉">✕</button><img id="lbImg" alt=""></div>
 </body>
 </html>

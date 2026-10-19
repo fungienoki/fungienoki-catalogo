@@ -104,6 +104,17 @@
     .sec{padding:16px 15px;}
     .nutri .big{font-size:1.375rem;}
   }
+
+  .rdish{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px;}
+  .rdish .rd{border-radius:16px;overflow:hidden;box-shadow:var(--shadow);cursor:zoom-in;background:var(--card);}
+  .rdish .rd img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;}
+  .rnote{margin-top:8px;font-size:0.719rem;color:var(--ink2);}
+  .lbox{position:fixed;inset:0;z-index:99;background:rgba(20,22,18,0.9);display:none;align-items:center;justify-content:center;padding:24px;}
+  .lbox.open{display:flex;}
+  .lbox img{max-width:100%;max-height:92vh;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,0.5);}
+  .lbox .cl{position:absolute;top:16px;right:16px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,0.14);border:none;color:#fff;font-size:1.25rem;cursor:pointer;}
+  .thumb.ph{background:linear-gradient(145deg,#8A6A52,#6B5138);}
+  .thumb.ph span{width:26px;height:26px;}
 </style>
 </head>
 <body>
@@ -233,13 +244,21 @@ var RECIPES = [];
 var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';
 var SIZE = parseInt(localStorage.getItem('fe_size')||'0',10);
+
+function openLb(img){
+  var lb=document.getElementById('lb'), bi=document.getElementById('lbImg');
+  if(!lb) return; bi.src=img.src; lb.classList.add('open');
+}
+function closeLb(){ var lb=document.getElementById('lb'); if(lb) lb.classList.remove('open'); }
 function renderYt(){
   var g = document.getElementById('ytList'); if(!g) return; g.innerHTML='';
   RECIPES.forEach(function(r,i){
     var main = LANG==='es'?r.es:r.zh, sub = LANG==='es'?r.zh:r.es;
     var d = document.createElement('div');
     d.className='yt-card'; d.onclick=function(){playYt(i);};
-    d.innerHTML='<div class="thumb"><img src="'+r.th+'"><span><svg width="10" height="10" viewBox="0 0 24 24"><polygon points="9,5 20,12 9,19" fill="#fff"/></svg></span></div><div style="flex:1;min-width:0;"><div class="t1">'+main+'</div><div class="t2">'+sub+'</div></div><span class="go">播放 →</span>';
+    d.innerHTML=(r.th
+      ?'<div class="thumb"><img src="'+r.th+'"><span>'
+      :'<div class="thumb ph"><span>')+'<svg width="10" height="10" viewBox="0 0 24 24"><polygon points="9,5 20,12 9,19" fill="#fff"/></svg></span></div><div style="flex:1;min-width:0;"><div class="t1">'+main+'</div><div class="t2">'+sub+'</div></div><span class="go">播放 →</span>';
     g.appendChild(d);
   });
 }
@@ -284,5 +303,6 @@ setInterval(function(){
   if(THEME==='night') toggleTheme();
 })();
 </script>
+<div class="lbox" id="lb" onclick="closeLb()"><button class="cl" aria-label="關閉">✕</button><img id="lbImg" alt=""></div>
 </body>
 </html>
