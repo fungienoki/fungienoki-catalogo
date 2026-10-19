@@ -58,14 +58,14 @@
   /* 区块卡片 */
   .sec{background:var(--card);border:1px solid var(--cardline);border-radius:26px;padding:20px 20px;box-shadow:var(--shadow);margin-bottom:14px;}
   .sec h2{font-size:17px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:9px;}
-  .sec h2 .ic{width:40px;height:40px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex:none;position:relative;
-    background:linear-gradient(145deg,rgba(255,255,255,0.72) 0%,rgba(244,238,224,0.55) 100%);
-    border:1px solid rgba(255,255,255,0.9);
-    box-shadow:0 6px 16px rgba(90,70,54,0.12), inset 0 1px 0 rgba(255,255,255,0.85), inset 0 -1px 0 rgba(201,106,60,0.08);
-    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+  .sec h2 .ic{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex:none;position:relative;
+    background:radial-gradient(circle at 32% 28%, rgba(255,255,255,0.95) 0%, rgba(244,236,220,0.78) 62%, rgba(230,218,196,0.65) 100%);
+    border:1px solid rgba(255,255,255,0.95);
+    box-shadow:0 5px 14px rgba(90,70,54,0.14), inset 0 1px 0 rgba(255,255,255,0.9), inset 0 -2px 5px rgba(201,106,60,0.10);
+    -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   }
-  [data-theme="night"] .sec h2 .ic{background:linear-gradient(145deg,rgba(255,255,255,0.14) 0%,rgba(255,255,255,0.06) 100%);border:1px solid rgba(255,255,255,0.18);box-shadow:0 6px 16px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.10);}
-  .sec h2 .ic svg{width:20px;height:20px;}
+  [data-theme="night"] .sec h2 .ic{background:radial-gradient(circle at 32% 28%, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.07) 60%, rgba(0,0,0,0.18) 100%);border:1px solid rgba(255,255,255,0.20);box-shadow:0 5px 14px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.12);}
+  .sec h2 .ic svg{width:21px;height:21px;}
   .sec p{font-size:14.5px;line-height:1.75;color:var(--ink);}
   .sec p.lead{color:var(--ink);}
   .sec .sub{color:var(--ink2);font-size:13.5px;line-height:1.7;margin-top:8px;}
@@ -152,17 +152,17 @@
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi0" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A6B57"/><stop offset="1" stop-color="#2F4A3A"/></linearGradient></defs><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z" fill="url(#gi0)" opacity=".92"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z" fill="url(#gi0)" opacity=".5"/><path d="M9 6h6M9 9.5h6" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg></span><span data-l="s1t">名字的由來</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4A6B57" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V2H6.5A2.5 2.5 0 0 0 4 4.5v15z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20V17H6.5A2.5 2.5 0 0 0 4 19.5z"/><path d="M9 6h6M9 9.5h6" stroke="#C96A3C"/></svg></span><span data-l="s1t">名字的由來</span></h2>
       <p data-l="s1p">它的名字來自冬天：寒流來襲時，幼菇帶著藍色澤，長大後轉為灰色；夏天則顏色較淺、菌褶較細。風味細膩，帶點魚鮮感，是純素料理中備受推崇的菇種。</p>
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A6B57"/><stop offset="1" stop-color="#2F4A3A"/></linearGradient></defs><circle cx="12" cy="12" r="9" fill="url(#gi1)" opacity=".92"/><circle cx="8.5" cy="9.5" r="1.3" fill="#fff"/><circle cx="14" cy="8.2" r="1.3" fill="#fff"/><circle cx="16.2" cy="13" r="1.3" fill="#fff"/><path d="M12 15.5a2.6 2.6 0 0 0 2.6-2.6" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg></span><span data-l="s2t">藍色平菇的兩種品種</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4A6B57" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 6.5a2.5 2.5 0 0 0-2.5-2.5A8 8 0 1 0 19 12l-2.3-.8"/><path d="M17.5 7.5 21 16"/><circle cx="5" cy="9" r="1.1" fill="#C96A3C" stroke="none"/><circle cx="7" cy="14" r="1.1" fill="#C96A3C" stroke="none"/><circle cx="11" cy="17" r="1.1" fill="#C96A3C" stroke="none"/><circle cx="13.5" cy="6.5" r="2.5"/></svg></span><span data-l="s2t">藍色平菇的兩種品種</span></h2>
       <p data-l="s2p">我們生產兩種：經典的藍色平菇，以及著名的黑珍珠（Perla Negra）。冬天顏色偏深或偏灰，夏天偏白、菌褶更細。</p>
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A6B57"/><stop offset="1" stop-color="#2F4A3A"/></linearGradient><linearGradient id="gi2b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C96A3C"/><stop offset="1" stop-color="#D9A441"/></linearGradient></defs><path d="M3 13a9 9 0 0 1 18 0v1a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 14z" fill="url(#gi2)" opacity=".92"/><path d="M6.5 18h11" stroke="url(#gi2b)" stroke-width="1.7" stroke-linecap="round"/><path d="M7 5.5 5.6 4.2M12 3.4V2M17 5.5l1.4-1.3" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></span><span data-l="s3t">怎麼煮</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4A6B57" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 13a9 9 0 0 1 18 0"/><path d="M3 13h18v1.5a2.5 2.5 0 0 1-2.5 2.5h-13A2.5 2.5 0 0 1 3 14.5z"/><path d="M12 4V2.5"/><path d="M7.5 5 6 3.5"/><path d="M16.5 5 18 3.5"/><path d="M7 18h10" stroke="#C96A3C"/></svg></span><span data-l="s3t">怎麼煮</span></h2>
       <p data-l="s3p">大火加蒜快炒至金黃、醃漬（escabeche）、鐵板香煎配檸檬，或煮湯燉菜皆宜。</p>
       <p class="sub" data-l="s3sub">這是客戶最常拍照回傳的菇：炒平菇、醃漬平菇。</p>
       <div class="chips">
@@ -187,22 +187,22 @@
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A6B57"/><stop offset="1" stop-color="#2F4A3A"/></linearGradient></defs><path d="M12 20.5s-8-4.8-8-10A4.7 4.7 0 0 1 12 6.6a4.7 4.7 0 0 1 8 3.9c0 5.2-8 10-8 10z" fill="url(#gi3)" opacity=".92"/><circle cx="10.2" cy="10.8" r="1.1" fill="#fff" opacity=".8"/><circle cx="13.8" cy="13.6" r="1.1" fill="#fff" opacity=".8"/></svg></span><span data-l="s4t">益處</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4A6B57" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 5-5 8.5-8 10-3-1.5-8-5-8-10a5.5 5.5 0 0 1 11-2 5.5 5.5 0 0 1 5 2z"/><path d="M12 20c-.5-3 1-5.5 3.5-7.5" stroke="#C96A3C"/></svg></span><span data-l="s4t">益處</span></h2>
       <p data-l="s4p">菸鹼酸與腦部健康的研究相關，抗氧化物質有助保護細胞。</p>
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4A6B57"/><stop offset="1" stop-color="#2F4A3A"/></linearGradient></defs><rect x="4" y="3" width="16" height="18" rx="3" fill="url(#gi4)" opacity=".92"/><path d="M12 6v12M8 9l-2 1.6M16 9l2 1.6M8 15l-2-1.6M16 15l2-1.6" stroke="#fff" stroke-width="1.4" stroke-linecap="round"/></svg></span><span data-l="s5t">保存方式</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#4A6B57" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><path d="M4.5 6.5l15 11"/><path d="M19.5 6.5l-15 11"/><path d="M12 7l2-1.5M12 17l2 1.5" stroke="#C96A3C"/></svg></span><span data-l="s5t">保存方式</span></h2>
       <p data-l="s5p">放冰箱、用紙袋裝；煮前不要水洗，用微濕布輕輕擦拭即可。可存放 5–7 天。</p>
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi5" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C96A3C"/><stop offset="1" stop-color="#D9A441"/></linearGradient></defs><path d="M12 20.5s-8-4.8-8-10A4.7 4.7 0 0 1 12 6.6a4.7 4.7 0 0 1 8 3.9c0 5.2-8 10-8 10z" fill="url(#gi5)" opacity=".92"/><path d="M12 16.5c-2.5-1.6-3.6-3-3.6-4.4 0-1 .8-1.7 1.7-1.7.7 0 1.3.4 1.9 1.1.6-.7 1.2-1.1 1.9-1.1.9 0 1.7.7 1.7 1.7 0 1.4-1.1 2.8-3.6 4.4z" fill="#fff" opacity=".85"/></svg></span><span data-l="s6t">為什麼惹人愛</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C96A3C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20.5s-8-4.8-8-10A4.7 4.7 0 0 1 12 6.6a4.7 4.7 0 0 1 8 3.9c0 5.2-8 10-8 10z"/><path d="M12 15.5a3 3 0 0 1-3-3" stroke="#4A6B57" opacity=".6"/></svg></span><span data-l="s6t">為什麼惹人愛</span></h2>
       <p data-l="s6p">富含蛋白質、核黃素、菸鹼酸與抗氧化物質。肉質柔嫩、風味細膩帶魚鮮感，是純素料理的理想選擇。</p>
     </div>
 
     <div class="sec">
-      <h2><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gi6" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#C96A3C"/><stop offset="1" stop-color="#D9A441"/></linearGradient></defs><circle cx="12" cy="12" r="9" fill="url(#gi6)" opacity=".92"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#fff"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
+      <h2><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="#C96A3C" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#C96A3C" stroke="none"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
       <div data-l="yt2" style="font-size:11.5px;color:var(--ink2);margin-bottom:4px;">點擊卡片，在頁面內直接觀看，無需跳出</div>
       <div id="ytList"></div>
       <div id="ytPlayer"><iframe id="ytFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
@@ -303,7 +303,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=['https://aka.doubaocdn.com/s/5Us6VLC4MQ','https://aka.doubaocdn.com/s/ucNNm8c1Rv','https://aka.doubaocdn.com/s/jmLAIV96wk'];
+var IMGS=['https://aka.doubaocdn.com/s/5Us6VLC4MQ','https://aka.doubaocdn.com/s/9n2pDSKWze','https://aka.doubaocdn.com/s/x0DVaGANNX','https://aka.doubaocdn.com/s/AuZRxyUQjd','https://aka.doubaocdn.com/s/QFSOKVuVTv'];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
