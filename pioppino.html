@@ -157,7 +157,7 @@
 
     <div class="hero">
       <img id="heroImg" src="https://aka.doubaocdn.com/s/InUn2U5rUX" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i></div>
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -202,6 +202,13 @@
         <span class="chip" data-l="n3">低脂低糖</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="r1"></span></h2>
+      <div class="rnote" data-l="r2"></div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/04jZ6GT3oW" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r3"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/FPJ8fggcUl" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r4"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/ZufUUwdJ0R" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r5"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/1ntBhwM9hw" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r6"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/6r8vwu3fHV" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r7"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/nj2hNTvEnV" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r8"></span></div></div>
+      <div class="rnote" data-l="r9" style="margin-top:6px;"></div><div class="rnote" data-l="r10" style="margin-top:6px;"></div><div class="rnote" data-l="r11" style="margin-top:6px;"></div><div class="rnote" data-l="r12" style="margin-top:6px;"></div><div class="rnote" data-l="r13" style="margin-top:6px;"></div><div class="rnote" data-l="r14" style="margin-top:6px;"></div>
+      
+    </div>
     </div>
 
   <footer>
@@ -244,6 +251,20 @@ var T = {
   n1:{'zh-Hant':'高蛋白','zh-Hans':'高蛋白','es':'Proteínas'},
   n2:{'zh-Hant':'胺基酸俱全','zh-Hans':'胺基酸俱全','es':'Aminoácidos'},
   n3:{'zh-Hant':'低脂低糖','zh-Hans':'低脂低糖','es':'Bajo en grasas'},
+  r1:{'zh-Hant':'食譜與做法','zh-Hans':'食谱与做法','es':'Recetas y preparación'},
+  r2:{'zh-Hant':'點擊圖片可放大，附簡單烹調方式','zh-Hans':'点击图片可放大，附简单烹调方式','es':'Tocá la imagen para verla en grande. Incluye preparación'},
+  r3:{'zh-Hant':'酥皮蘑菇塔','zh-Hans':'酥皮蘑菇塔','es':'Tartaletas de hongos'},
+  r4:{'zh-Hant':'紅燒茶树菇炒木耳','zh-Hans':'红烧茶树菇炒木耳','es':'Agrocybes salteados con hongo negro'},
+  r5:{'zh-Hant':'茶树菇炒青紅椒','zh-Hans':'茶树菇炒青红椒','es':'Agrocybes salteados con pimientos'},
+  r6:{'zh-Hant':'菌菇日式小點','zh-Hans':'菌菇日式小点','es':'Entrada japonesa de hongos'},
+  r7:{'zh-Hant':'青豆菌菇濃湯','zh-Hans':'青豆菌菇浓汤','es':'Sopa de arvejas y hongos'},
+  r8:{'zh-Hant':'菌菇燴飯','zh-Hans':'菌菇烩饭','es':'Risotto de hongos'},
+  r9:{'zh-Hant':'做法：1) 蘑菇切碎炒香，拌入奶油或素奶油成餡。2) 填入酥皮杯，烤箱烤至金黃。3) 頂部擠上醬汁、撒香草即可。','zh-Hans':'做法：1) 蘑菇切碎炒香，拌入奶油或素奶油成馅。2) 填入酥皮杯，烤箱烤至金黄。3) 顶部挤上酱汁、撒香草即可。','es':'Preparación: 1) Salteá los hongos picados y mezclalos con crema. 2) Rellená las tartaletas de hojaldre y horneá hasta dorar. 3) Decorá con salsa y hierbas.'},
+  r10:{'zh-Hant':'做法：1) 茶树菇與木耳泡發洗淨。2) 熱鍋爆香蔥薑與乾辣椒。3) 大火翻炒，加醬油、糖、水澱粉燒至收汁。','zh-Hans':'做法：1) 茶树菇与木耳泡发洗净。2) 热锅爆香葱姜与干辣椒。3) 大火翻炒，加酱油、糖、水淀粉烧至收汁。','es':'Preparación: 1) Remojá los agrocybes y el hongo negro. 2) Dorá cebollín, jengibre y ají seco. 3) Salteá a fuego fuerte con soja, azúcar y espesá con almidón.'},
+  r11:{'zh-Hant':'做法：1) 茶树菇撕條，青紅椒切絲。2) 熱油爆香蒜末。3) 大火快炒，加鹽、醬油調味即可。','zh-Hans':'做法：1) 茶树菇撕条，青红椒切丝。2) 热油爆香蒜末。3) 大火快炒，加盐、酱油调味即可。','es':'Preparación: 1) Desmenuzá los agrocybes y cortá los pimientos en tiras. 2) Dorá el ajo en aceite. 3) Salteá a fuego fuerte con sal y soja.'},
+  r12:{'zh-Hant':'做法：1) 菌菇煎香，以味醂、醬油調味。2) 配飯糰與菌菇醬汁擺盤。3) 撒芝麻或堅果點綴。','zh-Hans':'做法：1) 菌菇煎香，以味醂、酱油调味。2) 配饭团与菌菇酱汁摆盘。3) 撒芝麻或坚果点缀。','es':'Preparación: 1) Dorá los hongos y condimentalos con mirin y soja. 2) Serví con onigiri y salsa de hongos. 3) Decorá con sésamo o frutos secos.'},
+  r13:{'zh-Hant':'做法：1) 青豆與菌菇、洋蔥同煮。2) 打成濃湯，加鹽與植物奶調味。3) 盛入陶杯，點綴香草。','zh-Hans':'做法：1) 青豆与菌菇、洋葱同煮。2) 打成浓汤，加盐与植物奶调味。3) 盛入陶杯，点缀香草。','es':'Preparación: 1) Herví arvejas con hongos y cebolla. 2) Procesá hasta crema y alisá con leche vegetal. 3) Serví en tazas con hierbas.'},
+  r14:{'zh-Hant':'做法：1) 香菇切片煎香。2) 加米飯與高湯、醬汁小火燜煮。3) 撒黑胡椒與蔥絲。','zh-Hans':'做法：1) 香菇切片煎香。2) 加米饭与高汤、酱汁小火焖煮。3) 撒黑胡椒与葱丝。','es':'Preparación: 1) Dorá los shiitake fileteados. 2) Cociná con arroz, caldo y salsa a fuego bajo. 3) Espolvoreá pimienta negra y cebollín.'},
 };
 var RECIPES = [];
 // 状态
@@ -294,7 +315,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/InUn2U5rUX", "https://aka.doubaocdn.com/s/UyVdCJJRVh"];
+var IMGS=["https://aka.doubaocdn.com/s/InUn2U5rUX", "https://aka.doubaocdn.com/s/oVYq94GQaQ", "https://aka.doubaocdn.com/s/5jFVNfoLyE", "https://aka.doubaocdn.com/s/L6zUJGgYH7", "https://aka.doubaocdn.com/s/V415NkqUur", "https://aka.doubaocdn.com/s/Wtd1RmD09U"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
