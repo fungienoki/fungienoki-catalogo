@@ -208,6 +208,12 @@
       <div class="rnote" data-l="r6" style="margin-top:6px;"></div><div class="rnote" data-l="r7" style="margin-top:6px;"></div><div class="rnote" data-l="r8" style="margin-top:6px;"></div>
       
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#FFFFFF" stroke="none"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
+      <div data-l="yt2" style="font-size:0.719rem;color:var(--ink2);margin-bottom:4px;">點擊卡片，在頁面內直接觀看，無需跳出</div>
+      <div id="ytList"></div>
+      <div id="ytPlayer"><iframe id="ytFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
     </div>
 
   <footer>
@@ -258,8 +264,10 @@ var T = {
   r6:{'zh-Hant':'做法：1) 乾香菇泡軟切厚片，與薑片、八角同煮成香菇高湯。2) 下米粉煮至軟，加豆芽、胡蘿蔔絲略煮。3) 盛碗後擠上青檸、放香菜與辣椒圈即可。','zh-Hans':'做法：1) 干香菇泡软切厚片，与姜片、八角同煮成香菇高汤。2) 下米粉煮至软，加豆芽、胡萝卜丝略煮。3) 盛碗后挤上青柠、放香菜与辣椒圈即可。','es':'Preparación: 1) Remojá los shiitake secos, filetealos y herví un caldo con jengibre y anís. 2) Cociná los fideos de arroz con brotes de soja y zanahoria. 3) Serví con lima, cilantro y ají.'},
   r7:{'zh-Hant':'做法：1) 香菇切片，熱鍋加油煎至兩面金黃。2) 加醬油、糖、少許水，小火燜至收汁。3) 鋪在熱飯上，撒白芝麻與蔥花即可。','zh-Hans':'做法：1) 香菇切片，热锅加油煎至两面金黄。2) 加酱油、糖、少许水，小火焖至收汁。3) 铺在热饭上，撒白芝麻与葱花即可。','es':'Preparación: 1) Fileteá los shiitake y dorálos en aceite. 2) Agregá soja, azúcar y un poco de agua; cociná a fuego bajo hasta espesar. 3) Serví sobre arroz caliente con sésamo y cebollín.'},
   r8:{'zh-Hant':'做法：1) 香菇切片，蒜末用香油爆香。2) 大火快炒香菇至微焦，加醬油與少許糖調味。3) 撒白芝麻與蔥段即可。','zh-Hans':'做法：1) 香菇切片，蒜末用香油爆香。2) 大火快炒香菇至微焦，加酱油与少许糖调味。3) 撒白芝麻与葱段即可。','es':'Preparación: 1) Fileteá los shiitake y dorá el ajo en aceite de sésamo. 2) Salteá a fuego fuerte con soja y un poco de azúcar. 3) Espolvoreá sésamo y cebollín.'},
+  yt1:{'zh-Hant':'YouTube 食譜教學 · 2 種做法','zh-Hans':'YouTube 食谱教学 · 2 种做法','es':'Recetas en YouTube · 2 formas'},
+  yt2:{'zh-Hant':'點擊卡片，在頁面內直接觀看，無需跳出','zh-Hans':'点击卡片，在页面内直接观看，无需跳出','es':'Hacé clic en la tarjeta y mirá dentro de la página, sin salir'},
 };
-var RECIPES = [];
+var RECIPES = [{"v": "ymXMq8PLOw8", "zh": "香菇素鮑魚", "es": "Shiitake tipo abulón vegetariano"}, {"v": "mCE1jq3tohI", "zh": "清炒香菇", "es": "Shiitake salteado"}];
 // 状态
 var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';

@@ -156,8 +156,8 @@
     </div>
 
     <div class="hero">
-      <img id="heroImg" src="https://aka.doubaocdn.com/s/reSEUWlztc" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/hTBz4yqKka" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -201,6 +201,11 @@
         <span class="chip" data-l="n3">麥角硫因</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="rt1">食譜圖片</span></h2>
+      <div class="rnote" data-l="rt2">點擊圖片可放大查看</div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/4zNIZy72Ij" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/I86BpRMy5Y" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/NQkIm8hXCT" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/jLq7eY3igH" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/2FQMC63qpO" alt="" loading="lazy" onclick="openLb(this)"></div><div class="rd"><img src="https://aka.doubaocdn.com/s/D3TK4paPmR" alt="" loading="lazy" onclick="openLb(this)"></div></div>
+    </div>
     </div>
 
   <footer>
@@ -243,6 +248,8 @@ var T = {
   n1:{'zh-Hant':'口感爽脆','zh-Hans':'口感爽脆','es':'Crocante'},
   n2:{'zh-Hant':'溫和風味','zh-Hans':'温和风味','es':'Sabor suave'},
   n3:{'zh-Hant':'麥角硫因','zh-Hans':'麦角硫因','es':'Ergotioneína'},
+  rt1:{'zh-Hant':'食譜圖片','zh-Hans':'食谱图片','es':'Fotos de recetas'},
+  rt2:{'zh-Hant':'點擊圖片可放大查看','zh-Hans':'点击图片可放大查看','es':'Tocá la imagen para verla en grande'},
 };
 var RECIPES = [];
 // 状态
@@ -293,7 +300,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/reSEUWlztc", "https://aka.doubaocdn.com/s/wHgPOnRFxb", "https://aka.doubaocdn.com/s/M2ABwvLXpR", "https://aka.doubaocdn.com/s/t6uTE53lZk"];
+var IMGS=["https://aka.doubaocdn.com/s/hTBz4yqKka", "https://aka.doubaocdn.com/s/4ljQ4Fc1Xc", "https://aka.doubaocdn.com/s/UtVGlcX1id", "https://aka.doubaocdn.com/s/wT2jaBHiW1", "https://aka.doubaocdn.com/s/NvR0bUonD7"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
