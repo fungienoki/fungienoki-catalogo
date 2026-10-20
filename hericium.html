@@ -208,6 +208,12 @@
       <div class="rnote" data-l="r7" style="margin-top:6px;"></div><div class="rnote" data-l="r8" style="margin-top:6px;"></div><div class="rnote" data-l="r9" style="margin-top:6px;"></div><div class="rnote" data-l="r10" style="margin-top:6px;"></div>
       
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#FFFFFF" stroke="none"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
+      <div data-l="yt2" style="font-size:0.719rem;color:var(--ink2);margin-bottom:4px;">點擊卡片，在頁面內直接觀看，無需跳出</div>
+      <div id="ytList"></div>
+      <div id="ytPlayer"><iframe id="ytFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
     </div>
 
   <footer>
@@ -260,8 +266,10 @@ var T = {
   r8:{'zh-Hant':'做法：1) 猴頭菇切厚片，表面輕劃刀。2) 平底鍋加熱，以奶油或橄欖油煎至兩面金黃。3) 淋上菇醬汁，搭配蘆筍等蔬菜即可。','zh-Hans':'做法：1) 猴头菇切厚片，表面轻划刀。2) 平底锅加热，以奶油或橄榄油煎至两面金黄。3) 淋上菇酱汁，搭配芦笋等蔬菜即可。','es':'Preparación: 1) Cortá el hericium en filetes gruesos y marcá la superficie. 2) Dorálos en manteca u aceite de oliva. 3) Serví con salsa de hongos y verduras como espárragos.'},
   r9:{'zh-Hant':'做法：1) 猴頭菇切塊，以鹽、胡椒略醃。2) 熱鍋煎至表面焦香。3) 搭配燙熟的西蘭花與小番茄，淋上醬汁即可。','zh-Hans':'做法：1) 猴头菇切块，以盐、胡椒略腌。2) 热锅煎至表面焦香。3) 搭配烫熟的西兰花与小番茄，淋上酱汁即可。','es':'Preparación: 1) Cortá el hericium en cubos y sazoná con sal y pimienta. 2) Dorá hasta que esté crocante. 3) Serví con brócoli y tomates cherry, y agregá la salsa.'},
   r10:{'zh-Hant':'做法：1) 猴頭菇切厚片，兩面刷上醬油與味醂調成的醬料。2) 煎至表面焦香上色。3) 盛盤後淋上濃稠菇醬汁，以百里香點綴即可。','zh-Hans':'做法：1) 猴头菇切厚片，两面刷上酱油与味醂调成的酱料。2) 煎至表面焦香上色。3) 盛盘后淋上浓稠菇酱汁，以百里香点缀即可。','es':'Preparación: 1) Fileteá el hericium y pintá ambos lados con soja y mirin. 2) Dorá hasta caramelizar. 3) Serví con salsa espesa de hongos y decorá con tomillo.'},
+  yt1:{'zh-Hant':'YouTube 食譜教學 · 5 種做法','zh-Hans':'YouTube 食谱教学 · 5 种做法','es':'Recetas en YouTube · 5 formas'},
+  yt2:{'zh-Hant':'點擊卡片，在頁面內直接觀看，無需跳出','zh-Hans':'点击卡片，在页面内直接观看，无需跳出','es':'Hacé clic en la tarjeta y mirá dentro de la página, sin salir'},
 };
-var RECIPES = [];
+var RECIPES = [{"v": "QPMNI7PZaJE", "zh": "猴頭菇排", "es": "Bistec de melena de león"}, {"v": "ZdWdHjNAJzc", "zh": "猴頭菇料理", "es": "Receta de melena de león"}, {"v": "u-TnpiDS4fU", "zh": "純素猴頭菇排", "es": "Bife vegano"}, {"v": "sLrdRYZXe_M", "zh": "猴頭菇雞肉馬沙拉", "es": "Melena de león «chicken marsala»"}, {"v": "U3D9Cu_nQjo", "zh": "猴頭菇肋排", "es": "Costilla de melena"}];
 // 状态
 var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';

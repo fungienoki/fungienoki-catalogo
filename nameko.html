@@ -208,6 +208,12 @@
       <div class="rnote" data-l="r5" style="margin-top:6px;"></div><div class="rnote" data-l="r6" style="margin-top:6px;"></div>
       
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M10 8.5l5 3.5-5 3.5z" fill="#FFFFFF" stroke="none"/></svg></span><span data-l="yt1">YouTube 食譜教學</span></h2>
+      <div data-l="yt2" style="font-size:0.719rem;color:var(--ink2);margin-bottom:4px;">點擊卡片，在頁面內直接觀看，無需跳出</div>
+      <div id="ytList"></div>
+      <div id="ytPlayer"><iframe id="ytFrame" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+    </div>
     </div>
 
   <footer>
@@ -256,8 +262,10 @@ var T = {
   r4:{'zh-Hant':'滑子菇山藥泥蕎麥麵','zh-Hans':'滑子菇山药泥荞麦面','es':'Soba con nameko y ñame'},
   r5:{'zh-Hant':'做法：1) 滑子菇快速洗淨瀝乾（勿久泡）。2) 高湯煮開，加入豆腐塊與滑子菇煮約2-3分鐘。3) 轉小火，溶入味噌，撒蔥花或香菜即可。','zh-Hans':'做法：1) 滑子菇快速洗净沥干（勿久泡）。2) 高汤煮开，加入豆腐块与滑子菇煮约2-3分钟。3) 转小火，溶入味噌，撒葱花或香菜即可。','es':'Preparación: 1) Lavá rápido los nameko y escurrilos. 2) Herví el caldo dashi, sumá tofu en cubos y nameko; cociná 2-3 min. 3) Bajá el fuego y disolvé el miso; decorá con cebollín o cilantro.'},
   r6:{'zh-Hant':'做法：1) 蕎麥麵煮熟過冰水瀝乾。2) 滑子菇以少許醬油、味醂拌煮入味。3) 麵上鋪滑子菇與山藥泥，淋冷麵汁，撒香菜即可。','zh-Hans':'做法：1) 荞麦面煮熟过冰水沥干。2) 滑子菇以少许酱油、味醂拌煮入味。3) 面上铺滑子菇与山药泥，淋冷面汁，撒香菜即可。','es':'Preparación: 1) Cociná los fideos soba y pasalos por agua fría. 2) Salteá los nameko con un poco de soja y mirin. 3) Serví sobre los fideos con puré de ñame y caldo frío; decorá con cilantro.'},
+  yt1:{'zh-Hant':'YouTube 食譜教學 · 2 種做法','zh-Hans':'YouTube 食谱教学 · 2 种做法','es':'Recetas en YouTube · 2 formas'},
+  yt2:{'zh-Hant':'點擊卡片，在頁面內直接觀看，無需跳出','zh-Hans':'点击卡片，在页面内直接观看，无需跳出','es':'Hacé clic en la tarjeta y mirá dentro de la página, sin salir'},
 };
-var RECIPES = [];
+var RECIPES = [{"v": "oSzGjl3UlDQ", "zh": "滑子菇味噌湯", "es": "Sopa de miso con nameko"}, {"v": "VmGtjsQ7ZF0", "zh": "日式味噌湯", "es": "Sopa de miso japonesa"}];
 // 状态
 var LANG = localStorage.getItem('fe_lang') || 'zh-Hant';
 var THEME = localStorage.getItem('fe_theme') || 'day';
