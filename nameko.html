@@ -156,8 +156,8 @@
     </div>
 
     <div class="hero">
-      <img id="heroImg" src="https://aka.doubaocdn.com/s/KgHI22acJr" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i></div>
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/st8JdbnipJ" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -201,6 +201,13 @@
         <span class="chip" data-l="n3">低熱量</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="r1"></span></h2>
+      <div class="rnote" data-l="r2"></div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/cRSFqY4OOQ" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r3"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/vfSed375Vm" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r4"></span></div></div>
+      <div class="rnote" data-l="r5" style="margin-top:6px;"></div><div class="rnote" data-l="r6" style="margin-top:6px;"></div>
+      
+    </div>
     </div>
 
   <footer>
@@ -243,6 +250,12 @@ var T = {
   n1:{'zh-Hant':'麥角硫因','zh-Hans':'麦角硫因','es':'Ergotioneína'},
   n2:{'zh-Hant':'高鈣','zh-Hans':'高钙','es':'Calcio'},
   n3:{'zh-Hant':'低熱量','zh-Hans':'低热量','es':'Bajo en energía'},
+  r1:{'zh-Hant':'食譜與做法','zh-Hans':'食谱与做法','es':'Recetas y preparación'},
+  r2:{'zh-Hant':'滑子菇是日本專門用來煮味噌湯的蘑菇，口感滑嫩帶黏性。點擊圖片可放大，附簡單烹調方式。','zh-Hans':'滑子菇是日本专门用来煮味噌汤的蘑菇，口感滑嫩带黏性。点击图片可放大，附简单烹调方式。','es':'El nameko es el hongo que en Japón se usa especialmente para la sopa de miso; su textura es suave y ligeramente viscosa. Tocá la imagen para verla en grande. Incluye preparación.'},
+  r3:{'zh-Hant':'滑子菇味噌湯','zh-Hans':'滑子菇味噌汤','es':'Sopa de miso con nameko'},
+  r4:{'zh-Hant':'滑子菇山藥泥蕎麥麵','zh-Hans':'滑子菇山药泥荞麦面','es':'Soba con nameko y ñame'},
+  r5:{'zh-Hant':'做法：1) 滑子菇快速洗淨瀝乾（勿久泡）。2) 高湯煮開，加入豆腐塊與滑子菇煮約2-3分鐘。3) 轉小火，溶入味噌，撒蔥花或香菜即可。','zh-Hans':'做法：1) 滑子菇快速洗净沥干（勿久泡）。2) 高汤煮开，加入豆腐块与滑子菇煮约2-3分钟。3) 转小火，溶入味噌，撒葱花或香菜即可。','es':'Preparación: 1) Lavá rápido los nameko y escurrilos. 2) Herví el caldo dashi, sumá tofu en cubos y nameko; cociná 2-3 min. 3) Bajá el fuego y disolvé el miso; decorá con cebollín o cilantro.'},
+  r6:{'zh-Hant':'做法：1) 蕎麥麵煮熟過冰水瀝乾。2) 滑子菇以少許醬油、味醂拌煮入味。3) 麵上鋪滑子菇與山藥泥，淋冷麵汁，撒香菜即可。','zh-Hans':'做法：1) 荞麦面煮熟过冰水沥干。2) 滑子菇以少许酱油、味醂拌煮入味。3) 面上铺滑子菇与山药泥，淋冷面汁，撒香菜即可。','es':'Preparación: 1) Cociná los fideos soba y pasalos por agua fría. 2) Salteá los nameko con un poco de soja y mirin. 3) Serví sobre los fideos con puré de ñame y caldo frío; decorá con cilantro.'},
 };
 var RECIPES = [];
 // 状态
@@ -293,7 +306,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/KgHI22acJr", "https://aka.doubaocdn.com/s/TkGtsjnR6V", "https://aka.doubaocdn.com/s/8UlmXQ0sVR", "https://aka.doubaocdn.com/s/VHIJSv04Ou"];
+var IMGS=["https://aka.doubaocdn.com/s/st8JdbnipJ", "https://aka.doubaocdn.com/s/eRUDqKPYc8", "https://aka.doubaocdn.com/s/cfBBcTkox5", "https://aka.doubaocdn.com/s/7kgwy0iADV", "https://aka.doubaocdn.com/s/YtupqbAzCB"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
