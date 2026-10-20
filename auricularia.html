@@ -156,8 +156,8 @@
     </div>
 
     <div class="hero">
-      <img id="heroImg" src="https://aka.doubaocdn.com/s/XT1UXCh3Lo" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/Gcpv7IiGnk" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -201,6 +201,13 @@
         <span class="chip" data-l="n3">可溶性纖維</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="r1"></span></h2>
+      <div class="rnote" data-l="r2"></div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/VKVyHpUf9t" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r3"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/EdGyqeKc0C" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r4"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/NuImV4hoMg" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r5"></span></div></div>
+      <div class="rnote" data-l="r6" style="margin-top:6px;"></div><div class="rnote" data-l="r7" style="margin-top:6px;"></div><div class="rnote" data-l="r8" style="margin-top:6px;"></div>
+      
+    </div>
     </div>
 
   <footer>
@@ -243,6 +250,14 @@ var T = {
   n1:{'zh-Hant':'高B5','zh-Hans':'高B5','es':'Vitamina B5'},
   n2:{'zh-Hant':'高銅','zh-Hans':'高铜','es':'Cobre'},
   n3:{'zh-Hant':'可溶性纖維','zh-Hans':'可溶性纤维','es':'Fibra soluble'},
+  r1:{'zh-Hant':'食譜與做法','zh-Hans':'食谱与做法','es':'Recetas y preparación'},
+  r2:{'zh-Hant':'點擊圖片可放大，附簡單烹調方式','zh-Hans':'点击图片可放大，附简单烹调方式','es':'Tocá la imagen para verla en grande. Incluye preparación'},
+  r3:{'zh-Hant':'涼拌黑木耳','zh-Hans':'凉拌黑木耳','es':'Ensalada de hongo negro'},
+  r4:{'zh-Hant':'香辣涼拌木耳','zh-Hans':'香辣凉拌木耳','es':'Ensalada picante de hongo negro'},
+  r5:{'zh-Hant':'涼拌木耳澆汁','zh-Hans':'凉拌木耳浇汁','es':'Hongo negro con aliño'},
+  r6:{'zh-Hant':'做法：1) 乾木耳泡發後洗淨撕小朵，沸水燙2分鐘撈出瀝乾。2) 加蒜末、薑絲、辣椒圈、蔥花。3) 淋上醬油、醋、香油與少許糖拌勻，撒白芝麻即可。','zh-Hans':'做法：1) 干木耳泡发后洗净撕小朵，沸水烫2分钟捞出沥干。2) 加蒜末、姜丝、辣椒圈、葱花。3) 淋上酱油、醋、香油与少许糖拌匀，撒白芝麻即可。','es':'Preparación: 1) Remojá el hongo negro, lavalo y cortalo en trozos; hervilo 2 min y escurrí. 2) Sumá ajo picado, jengibre, ají en aros y cebollín. 3) Aliñá con soja, vinagre, aceite de sésamo y un poco de azúcar; espolvoreá sésamo.'},
+  r7:{'zh-Hant':'做法：1) 泡發木耳燙熟瀝乾。2) 以辣椒油、醬油、醋、蒜末調成醬汁。3) 拌入木耳，鋪上辣椒段與蔥絲，撒白芝麻即可。','zh-Hans':'做法：1) 泡发木耳烫熟沥干。2) 以辣椒油、酱油、醋、蒜末调成酱汁。3) 拌入木耳，铺上辣椒段与葱丝，撒白芝麻即可。','es':'Preparación: 1) Escaldá el hongo remojado y escurrí. 2) Mezclá aceite de ají, soja, vinagre y ajo. 3) Mezclá con el hongo, decorá con ají y cebollín, espolvoreá sésamo.'},
+  r8:{'zh-Hant':'做法：1) 木耳泡發撕小朵，燙熟瀝乾放入碗中。2) 蒜末、辣椒、蔥花鋪在木耳上。3) 熱油或醬汁淋上拌勻即可。','zh-Hans':'做法：1) 木耳泡发撕小朵，烫熟沥干放入碗中。2) 蒜末、辣椒、葱花铺在木耳上。3) 热油或酱汁淋上拌匀即可。','es':'Preparación: 1) Remojá el hongo, cortalo y escaldalo. 2) Cubrí con ajo, ají y cebollín. 3) Regá con aceite caliente o salsa y mezclá.'},
 };
 var RECIPES = [];
 // 状态
@@ -293,7 +308,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/XT1UXCh3Lo", "https://aka.doubaocdn.com/s/mTd1rhCJ4Z", "https://aka.doubaocdn.com/s/4QzeATiBSU", "https://aka.doubaocdn.com/s/r4wDWh3zwq", "https://aka.doubaocdn.com/s/LCXa9pe6lM"];
+var IMGS=["https://aka.doubaocdn.com/s/Gcpv7IiGnk", "https://aka.doubaocdn.com/s/h9sYqY00IU", "https://aka.doubaocdn.com/s/Vbo32HPfUa", "https://aka.doubaocdn.com/s/8bCkZUaTN9", "https://aka.doubaocdn.com/s/G7yBhdB1qY", "https://aka.doubaocdn.com/s/A5AEO4ZiuU"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
