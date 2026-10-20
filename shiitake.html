@@ -156,8 +156,8 @@
     </div>
 
     <div class="hero">
-      <img id="heroImg" src="https://aka.doubaocdn.com/s/VnrwfWA2Vb" alt="Gírgolas Azules">
-      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+      <img id="heroImg" src="https://aka.doubaocdn.com/s/IXtaezmz2W" alt="Gírgolas Azules">
+      <div class="dots"><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     </div>
 
     <div class="head">
@@ -201,6 +201,13 @@
         <span class="chip" data-l="n3">抗炎</span>
       </div>
     </div>
+    <div class="sec">
+      <h2><span class="ic" style="background:linear-gradient(145deg,#8A6A52,#6B5138);"><svg viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H4zM4 20h16"/><path d="M8 9l3 3 3-3 2.5 2.5"/></svg></span><span data-l="r1"></span></h2>
+      <div class="rnote" data-l="r2"></div>
+      <div class="rdish"><div class="rd"><img src="https://aka.doubaocdn.com/s/pzTFWZ0q8q" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r3"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/WF2NI19LoF" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r4"></span></div><div class="rd"><img src="https://aka.doubaocdn.com/s/9GmjnrYMQc" alt="" loading="lazy" onclick="openLb(this)"><span data-l="r5"></span></div></div>
+      <div class="rnote" data-l="r6" style="margin-top:6px;"></div><div class="rnote" data-l="r7" style="margin-top:6px;"></div><div class="rnote" data-l="r8" style="margin-top:6px;"></div>
+      
+    </div>
     </div>
 
   <footer>
@@ -243,6 +250,14 @@ var T = {
   n1:{'zh-Hant':'β-葡聚醣','zh-Hans':'β-葡聚糖','es':'Beta-glucanos'},
   n2:{'zh-Hant':'高銅','zh-Hans':'高铜','es':'Cobre'},
   n3:{'zh-Hant':'抗炎','zh-Hans':'抗炎','es':'Antiinflamatorio'},
+  r1:{'zh-Hant':'食譜與做法','zh-Hans':'食谱与做法','es':'Recetas y preparación'},
+  r2:{'zh-Hant':'點擊圖片可放大，簡單三步在家做','zh-Hans':'点击图片可放大，简单三步在家做','es':'Tocá la imagen para verla en grande. Preparación simple'},
+  r3:{'zh-Hant':'香菇越南湯麵','zh-Hans':'香菇越南汤面','es':'Sopa de fideos con shiitake'},
+  r4:{'zh-Hant':'香菇蓋飯','zh-Hans':'香菇盖饭','es':'Arroz con shiitake'},
+  r5:{'zh-Hant':'韓式炒香菇','zh-Hans':'韩式炒香菇','es':'Shiitake salteados estilo coreano'},
+  r6:{'zh-Hant':'做法：1) 乾香菇泡軟切厚片，與薑片、八角同煮成香菇高湯。2) 下米粉煮至軟，加豆芽、胡蘿蔔絲略煮。3) 盛碗後擠上青檸、放香菜與辣椒圈即可。','zh-Hans':'做法：1) 干香菇泡软切厚片，与姜片、八角同煮成香菇高汤。2) 下米粉煮至软，加豆芽、胡萝卜丝略煮。3) 盛碗后挤上青柠、放香菜与辣椒圈即可。','es':'Preparación: 1) Remojá los shiitake secos, filetealos y herví un caldo con jengibre y anís. 2) Cociná los fideos de arroz con brotes de soja y zanahoria. 3) Serví con lima, cilantro y ají.'},
+  r7:{'zh-Hant':'做法：1) 香菇切片，熱鍋加油煎至兩面金黃。2) 加醬油、糖、少許水，小火燜至收汁。3) 鋪在熱飯上，撒白芝麻與蔥花即可。','zh-Hans':'做法：1) 香菇切片，热锅加油煎至两面金黄。2) 加酱油、糖、少许水，小火焖至收汁。3) 铺在热饭上，撒白芝麻与葱花即可。','es':'Preparación: 1) Fileteá los shiitake y dorálos en aceite. 2) Agregá soja, azúcar y un poco de agua; cociná a fuego bajo hasta espesar. 3) Serví sobre arroz caliente con sésamo y cebollín.'},
+  r8:{'zh-Hant':'做法：1) 香菇切片，蒜末用香油爆香。2) 大火快炒香菇至微焦，加醬油與少許糖調味。3) 撒白芝麻與蔥段即可。','zh-Hans':'做法：1) 香菇切片，蒜末用香油爆香。2) 大火快炒香菇至微焦，加酱油与少许糖调味。3) 撒白芝麻与葱段即可。','es':'Preparación: 1) Fileteá los shiitake y dorá el ajo en aceite de sésamo. 2) Salteá a fuego fuerte con soja y un poco de azúcar. 3) Espolvoreá sésamo y cebollín.'},
 };
 var RECIPES = [];
 // 状态
@@ -293,7 +308,7 @@ function toggleTheme(){
   if(tp){ tp.setAttribute('d', THEME==='day' ? 'M12 3a9 9 0 1 0 9 9 7 7 0 0 1-9-9z' : 'M21 12.8A8.5 8.5 0 1 1 11.2 3 6.6 6.6 0 0 0 21 12.8z'); }
 }
 // hero 轮播
-var IMGS=["https://aka.doubaocdn.com/s/VnrwfWA2Vb", "https://aka.doubaocdn.com/s/IXtaezmz2W", "https://aka.doubaocdn.com/s/ew3XDWLJSG", "https://aka.doubaocdn.com/s/2StcUgZISB", "https://aka.doubaocdn.com/s/wuNc2Q6HWA"];
+var IMGS=["https://aka.doubaocdn.com/s/IXtaezmz2W", "https://aka.doubaocdn.com/s/ew3XDWLJSG", "https://aka.doubaocdn.com/s/wuNc2Q6HWA", "https://aka.doubaocdn.com/s/A8TVGfBinP", "https://aka.doubaocdn.com/s/smpH67Vr6w", "https://aka.doubaocdn.com/s/8wmoocWQBk", "https://aka.doubaocdn.com/s/wH3ohpRAid", "https://aka.doubaocdn.com/s/5ozBMZdVF4"];
 var idx=0;
 setInterval(function(){
   idx=(idx+1)%IMGS.length;
